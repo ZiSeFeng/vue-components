@@ -4,8 +4,8 @@
       <img src="@/assets/images/login-logo.png" alt="飞鱼通行证logo" />
     </div>
     <div class="login-form">
-      <input-field :placeholder="userPlaceholder"></input-field>
-      <input-field></input-field>
+      <mui-input :placeholder="userPlaceholder"></mui-input>
+      <mui-input></mui-input>
     </div>
   </div>
 </template>

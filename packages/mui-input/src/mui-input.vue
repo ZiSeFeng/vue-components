@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name: 'inputField',
+    name: 'mui-input',
     props: {
       placeholder: {
         default: '请输入',
