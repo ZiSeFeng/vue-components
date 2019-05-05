@@ -1,71 +1,93 @@
 <template>
-  <div class="input-form">
-    <div class="svg-container fl">
-      <svg-icon class="svg-user" icon-class="user" />
+  <div class="mui-input">
+    <div class="svg-container fl" v-if="leftIcon">
+      <svg-icon class="svg-left" :icon-class="leftIcon" />
     </div>
     <div class="line"></div>
-    <input class="input" type="text" :placeholder="placeholder" />
-    <div class="svg-container fr">
-      <svg-icon class="svg-no-eye" icon-class="no-eye" />
+    <input
+      :type="type"
+      class="input"
+      :placeholder="placeholder"
+      :value="value"
+      @input="handleInput"
+    />
+    <div class="svg-container fr" v-if="rightIcon">
+      <svg-icon class="svg-right" :icon-class="rightIcon" @click="rightClick" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'mui-input',
-    props: {
-      placeholder: {
-        default: '请输入',
-        type: String
-      }
+  name: 'mui-input',
+  props: {
+    placeholder: {
+      default: '请输入',
+      type: String
     },
-
+    value: null,
+    type: {
+      type: String,
+      default: 'text'
+    },
+    leftIcon: String,
+    rightIcon: String
+  },
+  data() {
+    return {};
+  },
+  created() {},
+  methods: {
+    handleInput(event) {
+      const value = event.target.value;
+      this.$emit('input', value);
+    },
+    rightClick() {
+      this.$emit('handleShow');
+    }
+  }
 };
 </script>
-
 
 <style lang="scss" scoped>
 @import '../../../src/styles/skin';
 @import '../../../src/styles/mixin';
 .svg-container {
-  width: 54px;
   height: 100%;
-  svg {
-    margin: 10px 0;
-  }
-  .svg-user {
-    font-size: 38px;
+  .svg-left {
+    font-size: 0.47rem;
     color: $red;
+    margin: 0.1rem 0.22rem 0 0.2rem;
   }
-  .svg-no-eye {
-    font-size: 32px;
-    margin-top: 16px;
+  .svg-right {
+    font-size: 0.43rem;
     color: $gray;
+    margin-top: 0.19rem;
   }
 }
 
-.input-form {
+.mui-input {
   width: 100%;
-  height: 59px;
+  height: 0.8rem;
   background-color: #fff;
-  border-bottom: 1px solid $red;
+  border-bottom: 2PX solid $red;
   .line {
-    width: 1PX;
-    height: 29px;
+    width: 2PX; /*no*/
+    height: 0.47rem;
     background-color: $red;
     float: left;
-    margin: 15px 0;
+    margin: 15PX 0;
   }
   .input {
-    width: calc(100% - 1px - 54px - 54px - 8PX);
-    height: 100%;
-    line-height: 58px;
-    font-size: $font24;
+    width: calc(100% - 1PX - 0.7rem - 0.7rem - 0.42rem - 29PX);
+    height: 99%;
+    line-height: 99%;
+    font-size: $font48;
     font-family: $fontSC;
     color: $gray3;
-    padding-left: 8PX;
+    padding-left: 29PX;
     border: none;
+    float: left;
     @include placeholder {
       color: $inputPlaceholder;
     }
