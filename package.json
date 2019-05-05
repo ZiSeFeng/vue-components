@@ -1,5 +1,5 @@
 {
-  "name": "wechat-demo",
+  "name": "cs-wehcat",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,10 @@
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "js-cookie": "^2.2.0",
+    "lib-flexible": "^0.3.2",
+    "postcss-px2rem": "^0.3.0",
     "qs": "^6.7.0",
+    "svg-sprite-loader": "^4.1.6",
     "vant": "^1.6.16",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

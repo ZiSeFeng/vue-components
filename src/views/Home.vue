@@ -7,6 +7,7 @@
     <div style="width:100px;hegiht:100px" v-show="isLoading">
       为什么会不能用呢
     </div>
+    <van-loading />
   </div>
 </template>
 
@@ -24,9 +25,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters([
-      'isLoading'
-    ])
+    ...mapGetters(['isLoading'])
   },
   methods: {
     getUser() {

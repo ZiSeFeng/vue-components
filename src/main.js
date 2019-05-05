@@ -3,6 +3,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import 'lib-flexible';
+import './icons'; // icon
+import '@/styles/index.scss';
+
 import vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(vant);

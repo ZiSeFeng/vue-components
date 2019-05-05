@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-const Home = () => import('../views/Home');
-const About = () => import('../views/About');
+const Home = () => import('@/views/Home');
+const About = () => import('@/views/About');
+const Login = () => import('@/views/login/index');
 
 Vue.use(Router);
 
@@ -19,6 +20,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 });

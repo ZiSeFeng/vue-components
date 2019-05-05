@@ -12,11 +12,12 @@ module.exports = {
   // 修改默认的入口
   pages: {
     index: {
-      entry: 'examples/main.js',
+      entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html'
     }
   },
+  lintOnSave: true, // 关闭eslint规范
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -41,13 +42,28 @@ module.exports = {
       }
     }
   },
+  css: {
+    loaderOptions: {
+      css: {},
+      // sass: {
+      //   data: '@import "@styles/skin.scss"'
+      // },
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 62 // ui设计稿621像素, 换算的基数
+          })
+        ]
+      }
+    }
+  },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
     name: name,
     resolve: {
       alias: {
-        '@': resolve('examples'),
+        '@': resolve('src'),
         '~': resolve('packages')
       }
     }
@@ -59,12 +75,12 @@ module.exports = {
     // set svg-sprite-loader
     config.module
       .rule('svg')
-      .exclude.add(resolve('examples/icons'))
+      .exclude.add(resolve('src/icons'))
       .end();
     config.module
       .rule('icons')
       .test(/\.svg$/)
-      .include.add(resolve('examples/icons'))
+      .include.add(resolve('src/icons'))
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')
@@ -74,19 +90,19 @@ module.exports = {
       .end();
 
     // lib目录是组件库最终打包好存放的地方，不需要eslint检查
-    // examples/docs是存放md文档的地方，也不需要eslint检查
+    // src/docs是存放md文档的地方，也不需要eslint检查
     config.module
       .rule('eslint')
       .exclude.add(path.resolve('lib'))
       .end()
-      .exclude.add(path.resolve('examples/docs'))
+      .exclude.add(path.resolve('src/docs'))
       .end();
-    // packages和examples目录需要加入编译
+    // packages和src目录需要加入编译
     config.module
       .rule('js')
       .include.add(/packages/)
       .end()
-      .include.add(/examples/)
+      .include.add(/src/)
       .end()
       .use('babel')
       .loader('babel-loader')
