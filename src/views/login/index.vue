@@ -116,10 +116,10 @@ export default {
     color: $grayae;
   }
   .line {
-    height: 2PX;
+    height: 2px;
     width: calc((100% - 2.67rem - 1.24rem) / 2);
     background-color: #f3f3f3;
-    margin-top: 26PX;
+    margin-top: 26px;
   }
   svg {
     width: 0.97rem;

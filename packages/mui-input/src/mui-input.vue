@@ -76,7 +76,7 @@ export default {
     height: 0.47rem;
     background-color: $red;
     float: left;
-    margin: 15PX 0;
+    margin: 5PX 0;
   }
   .input {
     width: calc(100% - 1PX - 0.7rem - 0.7rem - 0.42rem - 29PX);

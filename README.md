@@ -74,3 +74,36 @@ npm run mock
 ├── .env.production            // production环境下配置
 ├── .eslintrc.js               // eslint编译规则
 └── package.json               // package.json
+
+### postcss-px2rem
+**将px转化rem**
+将px转化位rem
+remUnit: 75,//rem对应px值 750/10=75
+propWhiteList: ['width'],同 propList: ['width']，指定哪些属性可以被转化位rem
+minPixelValue: 2,//小于这个值不转化位rem
+关于postcss-px2rem见。postcssrc.js
+或者在webpack中plugins中添加
+```
+ new webpack.LoaderOptionsPlugin({
+ // webpack 2.0之后， 此配置不能直接写在自定义配置项中， 必须写在此处
+  vue: {
+    postcss: [require('postcss-px2rem')({ remUnit: 75, propWhiteList: [] })]
+  },
+ })
+ ```
+
+vue-cli3中写在vue.config.js
+```
+postcss: {
+  plugins: [
+    require('postcss-px2rem')({
+      remUnit: 75, // ui设计稿750像素, 换算的基数 750/10
+      propList: ['*'],
+      mediaQuery: false, // 允许在媒体查询中转换px。
+      exclude: '/node_modules/',
+      minPixelValue: 3, //设置要替换的最小像素值(3px会被转rem)。 默认 0
+      selectorBlackList: ['weui', 'mu'] // 忽略转换正则匹配项
+    })
+  ]
+}
+```

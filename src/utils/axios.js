@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getToken } from '../utils/token';
+import qs from 'qs';
 // import store from '../store';
 // import router from '../router';
 
@@ -20,18 +21,21 @@ axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
 
 axios.interceptors.request.use(
   config => {
-    const request = JSON.stringify(config.url) + JSON.stringify(config.data);
+    // const request = JSON.stringify(config.url) + JSON.stringify(config.data);
+    const request =
+      config.method === 'post'
+        ? JSON.stringify(config.url) + qs.stringify({ ...config.data })
+        : JSON.stringify(config.url) + qs.stringify({ ...config.params });
 
     config.cancelToken = new CancelToken(cancel => {
       sources[request] = cancel;
     });
 
-    if (requestList.includes(request)) {
-      sources[request]('取消重复请求');
-    }
-    // else {
-    //     requestList.push(request)
-    //     store.dispatch('changeGlobalState', { loading: true })
+    // if (requestList.includes(request)) {
+    //   sources[request]('取消重复请求');
+    // } else {
+    //   requestList.push(request);
+    //   store.dispatch('login/login', { isLogin: true });
     // }
 
     // const token = store.getters.userInfo.token
@@ -42,33 +46,36 @@ axios.interceptors.request.use(
 
     return config;
   },
-  function(error) {
+  error => {
     return Promise.reject(error);
   }
 );
 
 axios.interceptors.response.use(
-  function(response) {
+  response => {
     const request =
-      JSON.stringify(response.config.url) +
-      JSON.stringify(response.config.data);
+      response.config.method === 'post'
+        ? JSON.stringify(response.config.url) +
+          qs.stringify({ ...response.config.data })
+        : JSON.stringify(response.config.url) +
+          qs.stringify({ ...response.config.params });
     requestList.splice(requestList.findIndex(item => item === request), 1);
     // if (requestList.length === 0) {
-    //     store.dispatch('changeGlobalState', { loading: false })
+    //   store.dispatch('login/login', { isLogin: false });
     // }
     // if (response.data.code === 900401) {
-    //     window.ELEMENT.Message.error('认证失效，请重新登录！', 1000)
-    //     router.push('/login')
+    //   window.ELEMENT.Message.error('认证失效，请重新登录！', 1000);
+    //   router.push('/login');
     // }
     return response;
   },
-  function(error) {
+  error => {
     // if (axios.isCancel(error)) {
-    //     requestList.length = 0
-    //     store.dispatch('changeGlobalState', { loading: false })
-    //     throw new axios.Cancel('cancel request')
+    //   requestList.length = 0;
+    //   store.dispatch('login/login', { isLogin: false });
+    //   throw new axios.Cancel('cancel request');
     // } else {
-    //     window.ELEMENT.Message.error('网络请求失败', 1000)
+    //   window.ELEMENT.Message.error('网络请求失败', 1000);
     // }
     return Promise.reject(error);
   }
