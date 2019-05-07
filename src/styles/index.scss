@@ -1,5 +1,6 @@
 @import './skin.scss';
 @import './mixin.scss';
+@import './common.scss';
 
 body {
   height: 100%;
@@ -26,14 +27,8 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-.no-padding {
-  padding: 0px !important;
-}
-
-.padding-content {
-  padding: 4px 0;
+  margin: 0;
+  padding: 0;
 }
 
 a:focus,
@@ -61,14 +56,9 @@ div:focus {
   float: left;
 }
 
-.block {
-  display: block;
-}
-
 .pointer {
   cursor: pointer;
 }
-
 
 .clearfix {
   &:after {

@@ -1,0 +1,88 @@
+// home/index.vue
+.home-header {
+  .mui-nav {
+    .svg-container.svg-image{
+      margin-left: 10px;
+      margin-right: 10px;
+      img.svg-left{
+        width: 1.29rem;
+        height: 1.29rem;
+      }
+    }
+    .svg-container.mui-nav-right {
+      margin-right: 6px;
+    }
+    &.list-record {
+      .svg-container.svg-image {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .svg-container .svg-icon {
+        font-size: 0.52rem; 
+        margin-right: 5PX;
+      }
+    }
+  }
+}
+.home-content {
+  .fl.svg-container.mui-nav-left {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .fr.svg-container.mui-nav-right {
+    margin-right: 8PX;
+  }
+  svg.svg-left.svg-icon {
+    font-size: 0.56rem;
+    margin-right: 5PX;
+  }
+  svg.svg-right.svg-icon {
+    font-size: 0.4rem;
+    margin-right: 8PX;
+  }
+  .content {
+    overflow: hidden;
+    margin: 0 0.18rem;
+    .content-card {
+      width: auto;
+      margin:0.24rem 0;
+      border-bottom: 1PX solid #e1e1e1;
+      .title.fl {
+        font-size: 0.39rem;
+        padding: 0 0 0.12rem 4PX;/*no*/
+        span {
+          width: 85%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block;
+        }
+      }
+      .mui-nav-right {
+        margin-right: 0;
+      }
+      &:first-child {
+        margin-top: 0.44rem;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .mui-cell {
+      width: calc(100% / 3 );
+      float: left;
+      margin-top: 0.44rem;
+      min-height: 2.04rem;
+      font-family: $fontSC;
+      .mui-cell-title {
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          -webkit-line-clamp: 1;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+  }
+}

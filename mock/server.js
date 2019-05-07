@@ -7,15 +7,27 @@ const app = new Koa();
 const router = new Router();
 
 app.use(cors());
-const userInfoData = require('../mock/user/info.js');
-
+/* 用户信息 */
+const userInfoData = require('./user/info.js');
 router.get('/dev-api/user/info', function(ctx) {
   let res = {
-    errno: 0,
+    code: 0,
+    msg: '成功',
     data: {}
   };
   res.data = userInfoData;
   // todo...
+  ctx.body = res;
+});
+
+/*home 服务记录*/
+const serverList = require('./home/index.js');
+router.get('/dev-api/home/list', function(ctx) {
+  let res = {
+    code: 0,
+    msg: '成功'
+  };
+  res.data = serverList;
   ctx.body = res;
 });
 
