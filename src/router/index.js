@@ -5,6 +5,7 @@ import Router from 'vue-router';
 const About = () => import('@/views/About');
 const Login = () => import('@/views/login/index');
 const Home = () => import('@/views/home/index');
+const Service = () => import('@/views/service/index');
 
 Vue.use(Router);
 
@@ -28,9 +29,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/home',
-      name: 'home',
-      component: Home
+      path: '/service',
+      name: 'service',
+      component: Service
     }
   ]
 });
