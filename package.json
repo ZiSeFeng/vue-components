@@ -13,6 +13,7 @@
     "core-js": "^2.6.5",
     "js-cookie": "^2.2.0",
     "lib-flexible": "^0.3.2",
+    "moment": "^2.24.0",
     "postcss-px2rem": "^0.3.0",
     "qs": "^6.7.0",
     "svg-sprite-loader": "^4.1.6",
