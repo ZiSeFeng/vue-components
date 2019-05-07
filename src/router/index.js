@@ -32,11 +32,11 @@ export default new Router({
       component: Login
     },
     {
-<<<<<<< HEAD
       path: '/service',
       name: 'service',
       component: Service
-=======
+    },
+    {
       path: '/user',
       name: '个人中心',
       component: User
@@ -50,7 +50,6 @@ export default new Router({
       path: '/user/detail/:id',
       name: '服务详情',
       component: Detail
->>>>>>> 6602333ac5c31dd163ed7069aa475cb764c4f5a0
     }
   ]
 });
