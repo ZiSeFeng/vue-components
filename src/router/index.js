@@ -4,6 +4,9 @@ import Router from 'vue-router';
 // const Home = () => import('@/views/Home');
 const About = () => import('@/views/About');
 const Login = () => import('@/views/login/index');
+const User = () => import('@/views/user/user');
+const Record = () => import('@/views/user/record');
+const Detail = () => import('@/views/user/detail');
 const Home = () => import('@/views/home/index');
 const Service = () => import('@/views/service/index');
 
@@ -29,9 +32,25 @@ export default new Router({
       component: Login
     },
     {
+<<<<<<< HEAD
       path: '/service',
       name: 'service',
       component: Service
+=======
+      path: '/user',
+      name: '个人中心',
+      component: User
+    },
+    {
+      path: '/user/record',
+      name: '服务记录',
+      component: Record
+    },
+    {
+      path: '/user/detail/:id',
+      name: '服务详情',
+      component: Detail
+>>>>>>> 6602333ac5c31dd163ed7069aa475cb764c4f5a0
     }
   ]
 });
