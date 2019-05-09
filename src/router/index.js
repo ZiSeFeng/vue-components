@@ -5,10 +5,10 @@ const Home = () => import('@/views/Home');
 const About = () => import('@/views/About');
 const Login = () => import('@/views/login/index');
 
-const ProblemDetails = () => import('@/views/problemDetails');
-const AccountProblem = () => import('@/views/accountProblem');
-const GameList = () => import('@/views/gameList');
-const GameProList = () => import('@/views/gameProList');
+const ProblemDetails = () => import('@/views/problemDetails/index');
+const AccountProblem = () => import('@/views/account/problem');
+const GameList = () => import('@/views/game/list');
+const GameProblem = () => import('@/views/game/problem');
 
 const User = () => import('@/views/user/user');
 const Record = () => import('@/views/user/record');
@@ -54,9 +54,9 @@ export default new Router({
       component: GameList
     },
     {
-      path: '/gameProList',
-      name: 'gameProList',
-      component: GameProList
+      path: '/gameProblem',
+      name: 'gameProblem',
+      component: GameProblem
     },
     {
       path: '/service',
