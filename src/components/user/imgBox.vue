@@ -1,29 +1,26 @@
 <template>
   <div class="img-box clearfix">
-    <div v-for="(item, index) in data" class="item fl" v-bind:key="index" ><img :src="item"></div>
+    <div v-for="(item, index) in data" class="item fl" v-bind:key="index">
+      <img :src="item" />
+    </div>
   </div>
 </template>
 <script>
 export default {
   props: ['data'],
   data() {
-    return {
-    };
+    return {};
   },
-  mounted() {
-  },
-  computed: {
-  },
-  methods: {
-  },
-  watch: {
-  }
-}
+  mounted() {},
+  computed: {},
+  methods: {},
+  watch: {}
+};
 </script>
 <style lang="scss" scoped>
 .img-box {
   width: 100%;
-  background: #F9F9F9;
+  background: #f9f9f9;
   border-radius: 12px;
   padding: 18px 1%;
   margin-top: 6px;
@@ -44,4 +41,3 @@ export default {
   }
 }
 </style>
-

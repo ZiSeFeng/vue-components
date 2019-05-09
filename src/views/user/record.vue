@@ -1,10 +1,17 @@
 <template>
   <div class="serve-wrap">
     <ul class="serve-list" v-if="!empty">
-      <li v-for="(item, index) in serveList" class="clearfix" v-bind:key="index" @click="goDetail(item)">
+      <li
+        v-for="(item, index) in serveList"
+        class="clearfix"
+        v-bind:key="index"
+        @click="goDetail(item)"
+      >
         <span class="title">{{ item.title }}</span>
         <span class="time fl">{{ formats(item.time) }}</span>
-        <span class="status fr" v-if="item.status == 1" style="color:#4ec94b">处理中</span>
+        <span class="status fr" v-if="item.status == 1" style="color:#4ec94b"
+          >处理中</span
+        >
         <span class="status fr" v-if="item.status == 2">已回复</span>
         <span class="status fr" v-if="item.status == 3">已解决</span>
         <span class="dot fr" v-if="item.red"></span>
@@ -32,7 +39,13 @@ export default {
           status: 1,
           red: false
         }, //处理中
-        { id: 2, time: 1557049332, title: '账号被封问题', status: 2, red: true }, //已回复
+        {
+          id: 2,
+          time: 1557049332,
+          title: '账号被封问题',
+          status: 2,
+          red: true
+        }, //已回复
         {
           id: 3,
           time: 1557049332,
@@ -74,7 +87,7 @@ export default {
   li {
     display: block;
     height: 120px;
-    border-bottom: 1Px solid $borderGray;
+    border-bottom: 1px solid $borderGray;
     padding: 0 25px 0 0;
   }
   .title {

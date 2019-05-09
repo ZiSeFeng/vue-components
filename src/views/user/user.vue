@@ -14,7 +14,7 @@
           <svg-icon :iconClass="'more'"></svg-icon>
         </i>
       </div>
-      <div class="num"  v-if="!empty">
+      <div class="num" v-if="!empty">
         <div class="item br">
           <p>3<i>条</i></p>
           <span>服务总数</span>
@@ -25,11 +25,17 @@
         </div>
       </div>
       <div class="empty" v-if="empty"></div>
-      <ul class="sever-list"  v-if="!empty">
-        <li v-for="(item, index) in serveList" class="clearfix" v-bind:key="index">
+      <ul class="sever-list" v-if="!empty">
+        <li
+          v-for="(item, index) in serveList"
+          class="clearfix"
+          v-bind:key="index"
+        >
           <span class="time">{{ item.time }}</span>
           <span class="title">{{ item.title }}</span>
-          <span class="status fr" v-if="item.status == 1" style="color:#4ec94b">处理中</span>
+          <span class="status fr" v-if="item.status == 1" style="color:#4ec94b"
+            >处理中</span
+          >
           <span class="status fr" v-if="item.status == 2">已回复</span>
           <span class="status fr" v-if="item.status == 3">已解决</span>
           <span class="dot fr" v-if="item.red"></span>
@@ -45,17 +51,24 @@ export default {
     return {
       nickName: 'zyt',
       empty: false,
-      serveList: [ //服务记录
-        {id:1, time: '12-19', title:'魔界塔充值异常问题',status: 1, red: false}, //处理中
-        {id:2, time: '04-29', title:'账号被封问题',status: 2, red: true}, //已回复
+      serveList: [
+        //服务记录
+        {
+          id: 1,
+          time: '12-19',
+          title: '魔界塔充值异常问题',
+          status: 1,
+          red: false
+        }, //处理中
+        { id: 2, time: '04-29', title: '账号被封问题', status: 2, red: true } //已回复
         // {id:3, time: '04-16', title:'魔界塔登录异常，充值掉线，游戏卡顿，关卡错误问题',status: 3, red: false}, //已解决
       ]
     };
   },
   methods: {
     goRecord() {
-      this.$router.push({ path: `user/record` })
-    }  
+      this.$router.push({ path: `user/record` });
+    }
   }
 };
 </script>
@@ -63,14 +76,14 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/skin';
 @import '../../styles/mixin';
-*{
+* {
   margin: 0;
   padding: 0;
 }
 .user-wrap {
   height: 100%;
-  background-color: #F9F9F9;
-  text-align:left;
+  background-color: #f9f9f9;
+  text-align: left;
 }
 .user-box {
   width: 100%;
@@ -108,8 +121,8 @@ export default {
     text-align: center;
     border-top-right-radius: 18px;
     border-bottom-right-radius: 18px;
-    background: #31C896;
-    background: -webkit-linear-gradient(left, #31C896, #3FDEBC);
+    background: #31c896;
+    background: -webkit-linear-gradient(left, #31c896, #3fdebc);
     .svg-icon {
       width: 34px;
       height: 36px;
@@ -142,13 +155,14 @@ export default {
   color: #333333;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 0 20px rgba(0,0,0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .empty {
   height: 360px;
   width: 100%;
-  background: url('http://192.168.13.74/web/gamePic/wechat/empty.png') center no-repeat;
+  background: url('http://192.168.13.74/web/gamePic/wechat/empty.png') center
+    no-repeat;
   background-size: 270px auto;
 }
 
@@ -162,7 +176,7 @@ export default {
     display: block;
     height: 76px;
     line-height: 76px;
-    border-top: 1Px solid $borderGray;
+    border-top: 1px solid $borderGray;
   }
   span {
     display: inline-block;
@@ -180,12 +194,12 @@ export default {
   .dot {
     width: 14px;
     height: 14px;
-    background: #E95A63;
+    background: #e95a63;
     border-radius: 50%;
     margin-top: 32px;
     margin-right: 10px;
   }
-   .status {
+  .status {
     color: #666666;
   }
 }
@@ -213,7 +227,7 @@ export default {
     }
   }
   .br {
-    border-right: 1Px solid $borderGray;
+    border-right: 1px solid $borderGray;
   }
 }
 
@@ -228,9 +242,8 @@ export default {
   font-size: 28px;
   color: $red;
   border: 0;
-  box-shadow: 0 0 20px rgba(0,0,0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   background: #fff;
-  letter-spacing: 1Px;
+  letter-spacing: 1px;
 }
 </style>
-
