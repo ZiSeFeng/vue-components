@@ -31,7 +31,7 @@
 
 <script>
 /**
- * mt-cell
+ * mui-cell
  * @module components/cell
  * @desc 单元格
  * @param {string|Object} [to] - 跳转链接，使用 vue-router 的情况下 to 会传递给 router.push，否则作为 a 标签的 href 属性处理
@@ -45,10 +45,10 @@
  * @param {slot} [icon] - 同 icon, 会覆盖 icon 属性，例如可以传入图片
  *
  * @example
- * <mt-cell title="标题文字" icon="back" is-link value="描述文字"></mt-cell>
- * <mt-cell title="标题文字" icon="back">
+ * <mui-cell title="标题文字" icon="back" is-link value="描述文字"></mui-cell>
+ * <mui-cell title="标题文字" icon="back">
  *   <div slot="value">描述文字啊哈</div>
- * </mt-cell>
+ * </mui-cell>
  * <mui-cell title="标题文字" icon="user" is-link value="描述问题" />
     <mui-cell title="标题文字" icon="back">
       <div slot="value">描述文字啊哈</div>
