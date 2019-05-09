@@ -1,15 +1,21 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-// const Home = () => import('@/views/Home');
+const Home = () => import('@/views/Home');
 const About = () => import('@/views/About');
 const Login = () => import('@/views/login/index');
+
+const ProblemDetails = () => import('@/views/problemDetails');
+const AccountProblem = () => import('@/views/accountProblem');
+const GameList = () => import('@/views/gameList');
+const GameProList = () => import('@/views/gameProList');
+
 const User = () => import('@/views/user/user');
 const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
-const Home = () => import('@/views/home/index');
 const Service = () => import('@/views/service/index');
 const IndexList = () => import('@/views/indexList/index');
+
 
 Vue.use(Router);
 
@@ -31,6 +37,26 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/problemDetails',
+      name: 'problemDetails',
+      component: ProblemDetails
+    },
+    {
+      path: '/accountProblem',
+      name: 'accountProblem',
+      component: AccountProblem
+    },
+    {
+      path: '/gameList',
+      name: 'gameList',
+      component: GameList
+    },
+    {
+      path: '/gameProList',
+      name: 'gameProList',
+      component: GameProList
     },
     {
       path: '/service',
@@ -57,5 +83,6 @@ export default new Router({
       name: 'indexList',
       component: IndexList
     }
+
   ]
 });
