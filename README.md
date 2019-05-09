@@ -1,4 +1,4 @@
-## 0.1. wechat-demo
+## 0.1. cs-wechat
 **技术栈** vue + vuex + vue-router + axios + vant
 
 ## 0.2. Project setup

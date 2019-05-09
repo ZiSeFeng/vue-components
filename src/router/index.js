@@ -15,7 +15,6 @@ const Detail = () => import('@/views/user/detail');
 const Service = () => import('@/views/service/index');
 const IndexList = () => import('@/views/indexList/index');
 
-
 Vue.use(Router);
 
 export default new Router({
@@ -77,6 +76,5 @@ export default new Router({
       name: 'indexList',
       component: IndexList
     }
-
   ]
 });

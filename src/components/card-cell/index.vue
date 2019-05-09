@@ -8,7 +8,7 @@
       :isLeftIcon="false"
     />
     <div class="content clearfix">
-      <mui-grid
+      <mui-cell-grid
         v-for="(item, index) in gameList"
         :key="index"
         :titleColor="'#333'"
