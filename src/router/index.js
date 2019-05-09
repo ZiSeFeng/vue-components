@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-const Home = () => import('@/views/Home');
-const About = () => import('@/views/About');
+const Home = () => import('@/views/home/index');
 const Login = () => import('@/views/login/index');
 
 const ProblemDetails = () => import('@/views/problemDetails/index');
@@ -27,11 +26,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
     },
     {
       path: '/login',

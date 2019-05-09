@@ -5,6 +5,7 @@
       :text="textValue"
       :leftIcon="leftIcon"
     />
+    <!-- <mui-cell :title="textValue" icon="back"></mui-cell> -->
     <mui-index-list>
       <mui-index-section
         class="index-list-section"
@@ -82,7 +83,7 @@ export default {
       alphabet: [],
       titleColor: '#333',
       textValue: '选择产品名称',
-      leftIcon: 'ellipsis'
+      leftIcon: 'back'
     };
   },
   created() {
