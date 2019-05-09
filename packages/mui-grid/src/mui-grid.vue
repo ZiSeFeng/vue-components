@@ -1,11 +1,11 @@
 <template>
-    <div ref="mgWidth" class="grid">{{gridValue}}</div>
+    <div ref="mgWidth" class="mui-grid"><slot></slot></div>
 </template>
 
 <script>
     export default {
-        name: 'Grid',
-        props: ['grid','gridValue'],//num值用来设置组件栅格布局
+        name: 'mui-grid',
+        props: ['grid'],//num值用来设置组件栅格布局
         data() {
             return {
                 
@@ -21,10 +21,14 @@
 
 
 <style lang="scss" scoped>
-   .grid{
+   .mui-grid{
       display: inline-block;
       box-sizing:border-box;
       margin-right: -6px;
    }
 </style>
+
+
+
+
 

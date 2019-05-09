@@ -2,12 +2,10 @@
     <div class="gameList">
         <!-- <h1 >游戏列表</h1> -->
         <div class="content">
-            <MediaList  num="3" v-for="(item,i) in data" :medialURl="item.src" :medialName="item.title" > </MediaList>
-            <Grid  grid="5" v-for="(item,i) in data"  :gridValue="item.title"> </Grid>
-
+            <MediaList  num="3" v-for="(item,i) in data"  :medialURl="item.src" :medialName="item.title">
+            </MediaList>
         </div>
        
-        
         <div class="footer">
         	  <button @click="submit()" class="default-btn" disabled="disabled">提交问题</button>
         </div>
@@ -18,7 +16,6 @@
 
 <script>
 import MediaList from '@/components/MediaList'
-import Grid from '@/components/Grid'
 export default {
     data() {
         return {
@@ -40,7 +37,7 @@ export default {
         }
     },
     components: {
-      MediaList,Grid
+      MediaList
     },
 };
 </script>

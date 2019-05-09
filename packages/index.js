@@ -4,9 +4,11 @@ import test from './test';
 import muiInput from './mui-input';
 import muiNavBar from './mui-navbar';
 import muiCell from './mui-cell';
+import muiGrid from './mui-grid';
+import muiSearchInput from './mui-searchInput'
 
 // 存储组件列表
-const components = [colorPicker, test, muiInput, muiNavBar, muiCell];
+const components = [colorPicker, test, muiInput, muiNavBar, muiCell,muiGrid,muiSearchInput];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function(Vue) {
@@ -29,5 +31,7 @@ export default {
   test,
   muiInput,
   muiNavBar,
-  muiCell
+  muiCell,
+  muiGrid,
+  muiSearchInput,
 };
