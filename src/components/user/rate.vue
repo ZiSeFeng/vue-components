@@ -3,9 +3,15 @@
     <div class="edit-rate-item clearfix">
       <h3>服务评价</h3>
       <div class="game-rate fl">
-        <span :class="setRateClass(key)" @click="setRate(key)" class="star"  v-for="(val,key,i) in rate_name_list" :key="i"></span>
+        <span
+          :class="setRateClass(key)"
+          @click="setRate(key)"
+          class="star"
+          v-for="(val, key, i) in rate_name_list"
+          :key="i"
+        ></span>
       </div>
-      <p class="rate-msg fr">{{rate_name}}</p>
+      <p class="rate-msg fr">{{ rate_name }}</p>
     </div>
     <p class="heart" v-if="isRate">感谢您的评价</p>
     <a class="submit" v-else @click="submit">提交评价</a>
@@ -14,7 +20,7 @@
 <script>
 export default {
   props: ['num', 'status'],
-  data () {
+  data() {
     return {
       isRate: false,
       rate: 0,
@@ -27,13 +33,13 @@ export default {
         8: '真好玩',
         10: '强烈推荐'
       }
-    }
+    };
   },
   methods: {
     submit() {
       this.isRate = true;
     },
-    setRate(val,type) {
+    setRate(val) {
       if (this.isRate) return;
       this.rate = val;
       this.rate_name = this.rate_name_list[val];
@@ -41,11 +47,11 @@ export default {
     setRateClass(val) {
       let name = '';
       if (Number(val) == this.rate) {
-        name = 'active clickActive'
+        name = 'active clickActive';
       } else if (Number(val) < this.rate) {
-        name = 'active'
+        name = 'active';
       } else {
-        name = ''
+        name = '';
       }
       return name;
     },
@@ -55,11 +61,10 @@ export default {
     }
   },
   mounted() {
-    this.getData()
+    this.getData();
   },
-  watch: { 
-  }
-}
+  watch: {}
+};
 </script>
 <style lang="scss" scoped>
 .rate-wrap {
@@ -87,13 +92,13 @@ export default {
   }
   @keyframes rateMove {
     0% {
-      transform:scale(1)
+      transform: scale(1);
     }
     50% {
-      transform:scale(1.2)
+      transform: scale(1.2);
     }
     100% {
-      transform:scale(1)
+      transform: scale(1);
     }
   }
   .clickActive {
@@ -113,13 +118,9 @@ export default {
     font-size: 26px;
     color: #fff;
     text-align: center;
-    background-image: linear-gradient(90deg, 
-      #ff5074 0%, 
-      #e8474a 100%), 
-    linear-gradient(
-      #e9484d, 
-      #e9484d);
-    background-blend-mode: normal,normal;
+    background-image: linear-gradient(90deg, #ff5074 0%, #e8474a 100%),
+      linear-gradient(#e9484d, #e9484d);
+    background-blend-mode: normal, normal;
     box-shadow: 0px 5px 10px 0px rgba(232, 71, 74, 0.2);
     border-radius: 33px;
   }
@@ -135,4 +136,3 @@ export default {
   }
 }
 </style>
-

@@ -42,6 +42,7 @@ module.exports = {
       }
     }
   },
+  filenameHashing: true,
   css: {
     loaderOptions: {
       css: {},
@@ -51,7 +52,7 @@ module.exports = {
       postcss: {
         plugins: [
           require('postcss-px2rem')({
-            remUnit: 41.4, // ui设计稿1242像素, 换算的基数 1242/10
+            remUnit: 62, // ui设计稿1242像素, 换算的基数 1242/10
             propList: ['*'],
             mediaQuery: false, // 允许在媒体查询中转换px。
             exclude: '/node_modules/',
@@ -115,6 +116,17 @@ module.exports = {
         // 修改它的选项...
         return options;
       });
+
+    config.module
+      .rule('images')
+      .test(/\.(png|jpg|gif|svg)$/)
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        name: '[name].[ext]',
+        limit: 1000
+      })
+      .end();
 
     // set preserveWhitespace
     config.module

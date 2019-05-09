@@ -9,6 +9,7 @@ const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
 const Home = () => import('@/views/home/index');
 const Service = () => import('@/views/service/index');
+const IndexList = () => import('@/views/indexList/index');
 
 Vue.use(Router);
 
@@ -50,6 +51,11 @@ export default new Router({
       path: '/user/detail/:id',
       name: '服务详情',
       component: Detail
+    },
+    {
+      path: '/indexlist',
+      name: 'indexList',
+      component: IndexList
     }
   ]
 });
