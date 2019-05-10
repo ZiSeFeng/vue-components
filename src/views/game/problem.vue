@@ -1,17 +1,51 @@
 <template>
-  <div class="problemDetails">
-    <!-- <h1 >常见问题</h1> -->
-    <h4>密码忘记怎么办？</h4>
+  <div class="gameProblem">
+    <!-- <h1 >游戏问题</h1> -->
     <div class="content">
-      <p>
-        一、若账号有绑定邮箱或者手机，可点击账号登录界面，密码输入框旁的问号，通过提示自助找回；
-      </p>
-      <p>
-        二、若未绑定或邮箱手机已注销，请点击【联系客服】提交相应信息，客服人员将为您反馈处理。
-      </p>
-      <!-- 厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用
-          厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用厦门双子塔系厦门标志性城市景观之一，厦门双子塔是两个独立的塔楼并由裙房相连，独立塔楼外形像两个巨大的帆船，又名双峰大厦。2014年06月17日，厦门双子塔已经封顶的，转入到室内外装修施工阶段。在建中的厦门新地标——“双子塔”世茂海峡大厦，该建筑300米左右，一幢作为五星级酒店和顶级写字楼，另一座则作为办公楼，已在2015年7月初交付使用 -->
+      <div class="search">
+        <mui-searchInput
+          v-model="searchValue"
+          :placeholder="'搜索'"
+          @click="search()"
+        ></mui-searchInput>
+      </div>
+
+      <div class="nav">
+          <mui-grid :grid="4">
+             <div class="nav-pills active">
+                <div class="title "> 游戏咨询 </div>
+                <p></p>
+             </div>
+          </mui-grid>
+          <mui-grid :grid="4">
+             <div class="nav-pills ">
+                <div class="title "> 玩法介绍 </div>
+                <p></p>
+             </div>
+          </mui-grid>
+          <mui-grid :grid="4">
+             <div class="nav-pills ">
+                <div class="title "> 其他 </div>
+                <p></p>
+             </div>
+          </mui-grid>
+      </div>
+
+      <div class="list">
+          <mui-cell 
+             v-if="data.length>0"
+             v-for="(item, i) in data"
+             :title="item.title" 
+             icon="back" 
+             is-link
+             value="描述文字">  
+          </mui-cell>
+          <div v-if="!data || data.length==0" class="hint">
+              没有找到相关问题
+          </div>
+      </div>
     </div>
+
     <div class="footer">
       <button @click="submit()" class="default-btn">提交问题</button>
     </div>
@@ -21,31 +55,153 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      searchValue: '',
+      data: [
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想xv湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '呃呃呃呃呃呃呃呃奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '呃呃呃呃呃呃呃呃奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '呃呃呃呃呃呃呃呃奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+      ]
+    };
   },
   methods: {
     submit() {
       alert('aaaaaaaaa');
+    },
+    search() {
+      console.log('search查询');
     }
-  }
+  },
+  components: {}
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '../../../src/styles/skin.scss';
+
+.gameProblem{
+   .mui-cell{
+      padding:20px 0px!important;
+   }
+   .hint{
+      color:#c8c9cc;
+      font-size: 26px;
+      text-align:center;
+      margin-top:120px;
+   }
+   .nav{
+      padding: 10px 0px;
+      .nav-pills {
+          width:100%;
+          .title{
+             font-size: 20px;
+             color:$black;
+             cursor: pointer;
+             font-weight: bold;
+             text-align: center;
+          }
+          &.active{
+              .title{
+                 font-size: 30px;
+              }
+              p{
+                 text-align:center;
+                 width: 20%;
+                 height: 4PX;
+                 background-color: $pink;
+                 border-radius: 2PX;
+                 margin:6PX auto;
+              }
+          }
+      }
+   }
+}
 body {
   height: auto;
 }
 h4,
 div {
   text-align: left;
-  padding: 0px 20px;
+  padding: 0px;
+  margin: 0px;
   font-size: 24px;
 }
 h4 {
   font-size: 28px;
 }
 .content {
-  /*padding-bottom: 120px;*/
+  width: 94%;
+  padding-bottom: 120px;
+  margin: 20px auto;
 }
 .footer {
   position: fixed;
@@ -56,16 +212,40 @@ h4 {
   padding: 20px 0px;
   background-color: #fff;
 }
+.search {
+  padding: 10px 0px;
+}
 
 /*按钮样式*/
+$btnBegin: rgb(254, 80, 115);
+$btnEnd: rgb(233, 71, 75);
+$btnborder: rgb(254, 80, 115);
 .default-btn {
   width: 60%;
-  height: 60px;
-  background-color: #ec4951;
-  border: 1px solid #ec4951;
-  font-size: 24px;
+  height: 46px;
+  background: -webkit-linear-gradient(
+    left,
+    $btnBegin,
+    $btnEnd
+  ); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(
+    right,
+    $btnBegin,
+    $btnEnd
+  ); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    $btnBegin,
+    $btnEnd
+  ); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, $btnBegin, $btnEnd); /* 标准的语法 */
+  border: 1px solid $btnborder;
+  font-size: 18px;
   color: #fff;
   outline: none;
-  border-radius: 30px;
+  border-radius: 23px;
+  cursor: pointer;
 }
+
+
 </style>
