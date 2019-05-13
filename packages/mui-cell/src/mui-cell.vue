@@ -21,7 +21,7 @@
         </slot>
       </div>
       <!-- <i v-if="isLink" class="mui-cell-allow-right"></i> -->
-      <svg-icon v-if="isLink" class="right-allow"></svg-icon>
+      <svg-icon v-if="isLink" icon-class="right-allow" class="svg-left"></svg-icon>
     </div>
     <div class="mui-cell-right">
       <slot name="right"></slot>
@@ -215,5 +215,8 @@ export default {
   height: 5px;
   -webkit-transform: translateY(-50%) rotate(45deg);
   transform: translateY(-50%) rotate(45deg);
+}
+.svg-left {
+  font-size: 32px;
 }
 </style>

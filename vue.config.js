@@ -119,7 +119,7 @@ module.exports = {
 
     config.module
       .rule('images')
-      .test(/\.(png|jpg|gif|svg)$/)
+      .test(/\.(png|jpg|gif)$/)
       .use('url-loader')
       .loader('url-loader')
       .options({

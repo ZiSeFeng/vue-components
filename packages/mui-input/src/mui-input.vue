@@ -1,7 +1,8 @@
 <template>
   <div class="mui-input">
     <div class="svg-container fl" v-if="leftIcon">
-      <svg-icon class="svg-left" :icon-class="leftIcon" />
+      <!-- <svg-icon class="svg-left" :icon-class="leftIcon" /> -->
+      <svg-icon class="svg-user" icon-class="user" />
     </div>
     <div class="line"></div>
     <input
@@ -79,18 +80,22 @@ export default {
     margin: 5PX 0;
   }
   .input {
-    width: calc(100% - 1PX - 0.7rem - 0.7rem - 0.42rem - 29PX);
+    width: calc(100% - 1px- 0.7rem - 0.7rem - 0.42rem - 0.234rem);/*no*/
     height: 99%;
     line-height: 99%;
     font-size: $font48;
     font-family: $fontSC;
     color: $gray3;
-    padding-left: 29PX;
+    padding-left: 0.234rem;
     border: none;
     float: left;
     @include placeholder {
       color: $inputPlaceholder;
     }
   }
+}
+.svg-user {
+  font-size: 38px;
+  color: $red;
 }
 </style>
