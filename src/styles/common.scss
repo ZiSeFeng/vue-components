@@ -10,12 +10,18 @@
       }
     }
     .svg-container.mui-nav-right {
-      margin-right: 6px;
+      margin-right: 0.2rem;
     }
     &.list-record {
+      margin-bottom: 14px;
       .svg-container.svg-image {
         margin-left: 0;
-        margin-right: 0;
+        margin-right: 6PX;
+        .svg-left {
+          width: 100%;
+          height: auto;
+          margin-top: 8PX;
+        }
       }
       .svg-container .svg-icon {
         font-size: 0.52rem; 
@@ -27,7 +33,10 @@
 .home-content {
   .fl.svg-container.mui-nav-left {
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 8PX;
+    .svg-left {
+      margin-top: 7PX;
+    }
   }
   .fr.svg-container.mui-nav-right {
     margin-right: 8PX;
@@ -37,19 +46,19 @@
     margin-right: 5PX;
   }
   svg.svg-right.svg-icon {
-    font-size: 0.4rem;
+    font-size: 0.46rem;
     margin-right: 8PX;
   }
   .content {
     overflow: hidden;
     margin: 0 0.18rem;
     .content-card {
-      width: auto;
-      margin:0.24rem 0;
+      margin:0.2rem 0;
       border-bottom: 1PX solid #e1e1e1;
       .title.fl {
         font-size: 0.39rem;
-        padding: 0 0 0.12rem 4PX;/*no*/
+        padding: 0 0 0.08rem 4PX;/*no*/
+        width: calc(100% - 0.45rem);
         span {
           width: 85%;
           white-space: nowrap;
@@ -60,6 +69,7 @@
       }
       .mui-nav-right {
         margin-right: 0;
+        width: 0.45rem;
       }
       &:first-child {
         margin-top: 0.44rem;
@@ -68,13 +78,13 @@
         border-bottom: none;
       }
     }
-    .mui-cell {
+    .mui-cell-grid {
       width: calc(100% / 3 );
       float: left;
       margin-top: 0.44rem;
       min-height: 2.04rem;
       font-family: $fontSC;
-      .mui-cell-title {
+      .mui-cell-grid-title {
         p {
           text-overflow: ellipsis;
           overflow: hidden;
@@ -85,4 +95,36 @@
       }
     }
   }
+}
+
+/*indexlist*/
+.indexlist-page {
+  .mui-index-section{
+    .mui-cell {
+      padding: 20px 0 14px;
+      border-bottom: 1px solid #e1e1e1;
+    }
+    .mui-cell-text {
+      margin-left: 0.38rem;
+      color: #333;
+    }
+    .mui-cell-wrapper {
+      padding: 0 0.44rem;
+    }
+  }
+  .mui-index-section.index-list-section .mui-index-section-index {
+    padding: 0.4rem 0.44rem 0;
+  }
+  .mui-nav {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    margin: 16Px 0 0Px 0;
+    .fl.title {
+      text-align: center;
+      font-size: 0.44rem;
+      color: $black;
+      font-family: $fontSC;
+    }
+  }
+  
 }

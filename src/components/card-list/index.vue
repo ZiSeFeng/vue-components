@@ -5,10 +5,11 @@
       :text="textValue"
       :leftIcon="leftIcon"
       :rightIcon="rightIcon"
+      :isLeftIcon="false"
     />
     <div class="content">
       <mui-navbar
-        v-for="(item, index) in accountList"
+        v-for="(item, index) in serverList"
         :key="index"
         :titleColor="'#333'"
         :text="item.title"
@@ -20,28 +21,19 @@
 </template>
 
 <script>
-import { getListData } from '@/api/home';
+const LEFT_IMG = require('@/assets/images/blue-use.png');
 
 export default {
+  props: {
+    serverList: Array
+  },
   data() {
     return {
-      accountList: [],
       titleColor: '#333',
       textValue: '账号',
-      leftIcon: 'blue-use',
+      leftIcon: LEFT_IMG,
       rightIcon: 'ellipsis'
     };
-  },
-  created() {
-    this.getServerList();
-  },
-  methods: {
-    getServerList() {
-      getListData().then(res => {
-        console.log(res, '222');
-        this.accountList = res.data.server.list;
-      });
-    }
   }
 };
 </script>

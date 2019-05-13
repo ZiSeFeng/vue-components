@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 .img-box {
   width: 100%;
-  background: #F9F9F9;
+  background: #f9f9f9;
   border-radius: 12px;
   padding: 18px 1%;
   margin-top: 6px;
@@ -63,4 +63,3 @@ export default {
   }
 }
 </style>
-

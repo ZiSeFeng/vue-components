@@ -5,6 +5,7 @@
       :text="textValue"
       :leftIcon="leftIcon"
       :rightIcon="rightIcon"
+      :isLeftIcon="false"
       class="list-record"
     />
     <div class="content clearfix">
@@ -12,7 +13,7 @@
         <li v-for="(item, index) in recordList" :key="index">
           <span class="list-cell-left fl">{{ item.date }}</span>
           <span class="list-cell-medium fl">{{ item.title }}</span>
-          <span class="list-cell-right fl">
+          <span class="list-cell-right fr">
             <i class="list-cell-read" v-show="!item.readed"></i>
             {{ statusText[item.status] }}
           </span>
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import { getListData } from '@/api/home';
+const LEFT_IMG = require('@/assets/images/green-record.png');
 
 export default {
   props: {
@@ -33,7 +34,7 @@ export default {
     return {
       titleColor: '#333',
       textValue: '服务记录',
-      leftIcon: 'green-record',
+      leftIcon: LEFT_IMG,
       rightIcon: 'ellipsis',
       statusText: {
         0: '处理中',
@@ -42,18 +43,7 @@ export default {
         3: '未解决'
       }
     };
-  },
-  // created() {
-  //   console.log(this.recordList, 'this recordList')
-  // },
-  // methods: {
-  //   getServerList() {
-  //     getListData().then(res => {
-  //       this.gameList = res.data.game.list;
-  //       console.log(this.gameList, 'gameList')
-  //     });
-  //   }
-  // }
+  }
 };
 </script>
 
@@ -65,7 +55,7 @@ export default {
   .list-cell {
     width: 100%;
     height: auto;
-    padding:10PX 0.33rem 0 0.24rem;/*no*/
+    padding: 10px 0.26rem 0 0.24rem; /*no*/
     li {
       width: 100%;
       font-family: $fontSC;
@@ -75,25 +65,25 @@ export default {
       text-align: left;
       height: 0.48rem;
       line-height: 0.48rem;
-      margin-bottom: 10PX;
+      margin-bottom: 10px;
     }
     .list-cell-left {
-      width: 260PX;
+      width: 2.1rem;
     }
     .list-cell-right {
-      width: 170PX;
+      width: 1.5rem;
       text-align: right;
       color: $green;
     }
     .list-cell-medium {
-      width: calc(100% - 260PX - 170PX - 10PX);/*no*/
+      width: calc(100% - 2.1rem - 1.5rem - 0.5rem); /*no*/
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
     .list-cell-read {
-      width: 0.20rem;
-      height: 0.20rem;
+      width: 0.2rem;
+      height: 0.2rem;
       border-radius: 50%;
       background-color: $red;
       display: inline-block;

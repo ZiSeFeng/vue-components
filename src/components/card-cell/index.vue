@@ -5,9 +5,10 @@
       :text="textValue"
       :leftIcon="leftIcon"
       :rightIcon="rightIcon"
+      :isLeftIcon="false"
     />
     <div class="content clearfix">
-      <mui-cell
+      <mui-cell-grid
         v-for="(item, index) in gameList"
         :key="index"
         :titleColor="'#333'"
@@ -20,34 +21,27 @@
 </template>
 
 <script>
-import { getListData } from '@/api/home';
+const LEFT_IMG = require('@/assets/images/red-game.png');
 
 export default {
+  props: {
+    gameList: Array
+  },
   data() {
     return {
-      gameList: [],
       titleColor: '#333',
       textValue: '游戏',
-      leftIcon: 'red-game',
+      leftIcon: LEFT_IMG,
       rightIcon: 'ellipsis'
     };
-  },
-  created() {
-    this.getServerList();
-  },
-  methods: {
-    getServerList() {
-      getListData().then(res => {
-        this.gameList = res.data.game.list;
-        console.log(this.gameList, 'gameList')
-      });
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/skin.scss';
 .content {
-  padding-bottom: 0.4rem;
+  width: 100%;
+  padding-bottom: 0.2rem;
 }
 </style>

@@ -1,15 +1,21 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-// const Home = () => import('@/views/Home');
-const About = () => import('@/views/About');
+const Home = () => import('@/views/home/index');
 const Login = () => import('@/views/login/index');
+
+const ProblemDetails = () => import('@/views/problemDetails/index');
+const AccountProblem = () => import('@/views/account/problem');
+const GameList = () => import('@/views/game/list');
+const GameProblem = () => import('@/views/game/problem');
+
 const User = () => import('@/views/user/user');
 const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
 const Question = () => import('@/views/user/question');
 const Home = () => import('@/views/home/index');
 const Service = () => import('@/views/service/index');
+const IndexList = () => import('@/views/indexList/index');
 
 Vue.use(Router);
 
@@ -23,14 +29,29 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
-    {
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/problemDetails',
+      name: 'problemDetails',
+      component: ProblemDetails
+    },
+    {
+      path: '/accountProblem',
+      name: 'accountProblem',
+      component: AccountProblem
+    },
+    {
+      path: '/gameList',
+      name: 'gameList',
+      component: GameList
+    },
+    {
+      path: '/gameProblem',
+      name: 'gameProblem',
+      component: GameProblem
     },
     {
       path: '/service',
@@ -56,6 +77,11 @@ export default new Router({
       path: '/user/question/:id',
       name: '问题内容',
       component: Question
+    },
+    {
+      path: '/indexlist',
+      name: 'indexList',
+      component: IndexList
     }
   ]
 });

@@ -42,6 +42,7 @@ module.exports = {
       }
     }
   },
+  filenameHashing: true,
   css: {
     loaderOptions: {
       css: {},
@@ -115,6 +116,17 @@ module.exports = {
         // 修改它的选项...
         return options;
       });
+
+    config.module
+      .rule('images')
+      .test(/\.(png|jpg|gif)$/)
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        name: '[name].[ext]',
+        limit: 1000
+      })
+      .end();
 
     // set preserveWhitespace
     config.module

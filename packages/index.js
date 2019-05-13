@@ -1,12 +1,26 @@
 // 导入颜色选择器组件
 import colorPicker from './color-picker';
-import test from './test';
-import muiInput from './mui-input';
-import muiNavBar from './mui-navbar';
+import muiInput from './mui-input'; //输入框
+import muiNavBar from './mui-navbar'; // 导航栏 两侧带有图标或者是图片
+import muiGrid from './mui-grid';
+import muiIndexList from './mui-index-list'; // 索引列表
+import muiIndexSection from './mui-index-section';
 import muiCell from './mui-cell';
+import muiSearchInput from './mui-searchInput';
+import muiCellGrid from './mui-cell-grid';
 
 // 存储组件列表
-const components = [colorPicker, test, muiInput, muiNavBar, muiCell];
+const components = [
+  colorPicker,
+  muiInput,
+  muiNavBar,
+  muiGrid,
+  muiIndexList,
+  muiIndexSection,
+  muiCell,
+  muiSearchInput,
+  muiCellGrid
+];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function(Vue) {
@@ -26,8 +40,12 @@ export default {
   install,
   // 以下是具体的组件列表
   colorPicker,
-  test,
   muiInput,
   muiNavBar,
-  muiCell
+  muiCell,
+  muiGrid,
+  muiSearchInput,
+  muiIndexList,
+  muiIndexSection,
+  muiCellGrid
 };
