@@ -33,7 +33,6 @@ export default {
       beauty_name: '',
       rate_name: '',
       rate_name_list: {
-<<<<<<< HEAD
         2: '非常不满意',
         4: '不满意',
         6: '一般',
@@ -42,15 +41,6 @@ export default {
       },
       satisfaction: 0
     }
-=======
-        2: '不好玩',
-        4: '还不错',
-        6: '有点意思',
-        8: '真好玩',
-        10: '强烈推荐'
-      }
-    };
->>>>>>> e88402f830bfa52d1b267b51f334507e318bf0c5
   },
   methods: {
     submit() {
@@ -80,17 +70,12 @@ export default {
   mounted() {
     this.getData();
   },
-<<<<<<< HEAD
   watch: {
     status() {
       this.getData()
     }
   }
 }
-=======
-  watch: {}
-};
->>>>>>> e88402f830bfa52d1b267b51f334507e318bf0c5
 </script>
 <style lang="scss" scoped>
 .rate-wrap {
@@ -135,24 +120,6 @@ export default {
     margin: 0;
     line-height: 38px;
   }
-<<<<<<< HEAD
-=======
-  .submit {
-    display: block;
-    margin: 50px auto 20px;
-    width: 375px;
-    height: 66px;
-    line-height: 66px;
-    font-size: 26px;
-    color: #fff;
-    text-align: center;
-    background-image: linear-gradient(90deg, #ff5074 0%, #e8474a 100%),
-      linear-gradient(#e9484d, #e9484d);
-    background-blend-mode: normal, normal;
-    box-shadow: 0px 5px 10px 0px rgba(232, 71, 74, 0.2);
-    border-radius: 33px;
-  }
->>>>>>> e88402f830bfa52d1b267b51f334507e318bf0c5
   .heart {
     width: 150px;
     margin: 20px auto 10px;

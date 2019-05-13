@@ -13,7 +13,7 @@ const User = () => import('@/views/user/user');
 const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
 const Question = () => import('@/views/user/question');
-const Home = () => import('@/views/home/index');
+
 const Service = () => import('@/views/service/index');
 const IndexList = () => import('@/views/indexList/index');
 
