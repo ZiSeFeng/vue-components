@@ -122,6 +122,7 @@ export default {
   overflow: hidden;
   position: relative;
   text-decoration: none;
+  border-bottom: 1PX solid $grayBorder;
 }
 .mui-cell img{
   vertical-align: middle;

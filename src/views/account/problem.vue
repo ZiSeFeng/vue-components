@@ -9,10 +9,19 @@
           @click="search()"
         ></mui-searchInput>
       </div>
-
+ 
       <div class="list">
-        <div>dddddd</div>
-        <div></div>
+          <mui-cell 
+             v-if="data.length>0"
+             v-for="(item, i) in data"
+             :title="item.title" 
+             icon="back" 
+             is-link
+             value="描述文字">  
+          </mui-cell>
+          <div v-if="!data || data.length==0" class="hint">
+              没有找到相关问题
+          </div>
       </div>
     </div>
 
@@ -26,7 +35,81 @@
 export default {
   data() {
     return {
-      searchValue: ''
+      searchValue: '',
+      data: [
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想xv湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '呃呃呃呃呃呃呃呃奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '呃呃呃呃呃呃呃呃奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '呃呃呃呃呃呃呃呃奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+        {
+          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
+          title: '奇想江湖'
+        },
+      ]
     };
   },
   methods: {
@@ -42,6 +125,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../src/styles/skin.scss';
+
+.accountProblem{
+   .mui-cell{
+      padding:20px 0px!important;
+   }
+   .hint{
+      color:#c8c9cc;
+      font-size: 26px;
+      text-align:center;
+      margin-top:120px;
+   }
+}
 body {
   height: auto;
 }
