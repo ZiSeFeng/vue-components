@@ -51,7 +51,7 @@ module.exports = {
       postcss: {
         plugins: [
           require('postcss-px2rem')({
-            remUnit: 41.4, // ui设计稿1242像素, 换算的基数 1242/10
+            remUnit: 62, // ui设计稿1242像素, 换算的基数 1242/10
             propList: ['*'],
             mediaQuery: false, // 允许在媒体查询中转换px。
             exclude: '/node_modules/',

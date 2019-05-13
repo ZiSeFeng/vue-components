@@ -7,6 +7,7 @@ const Login = () => import('@/views/login/index');
 const User = () => import('@/views/user/user');
 const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
+const Question = () => import('@/views/user/question');
 const Home = () => import('@/views/home/index');
 const Service = () => import('@/views/service/index');
 
@@ -50,6 +51,11 @@ export default new Router({
       path: '/user/detail/:id',
       name: '服务详情',
       component: Detail
+    },
+    {
+      path: '/user/question/:id',
+      name: '问题内容',
+      component: Question
     }
   ]
 });

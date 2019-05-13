@@ -17,9 +17,9 @@
         <p>{{item.content}}</p>
         <img-box :data="item['images']" class="" v-if="item['images'].length"></img-box>
       </div>
-      <a class="add-question fr">追加提问</a>
+      <a class="add-question fr" @click="goQuestion()">追加提问</a>
     </div>
-    <rate :num="data.rate" :status="data.is_rate"></rate>
+    <rate :num="data.rate" :status="data.is_rate" v-if="data['status'] == 3"></rate>
   </div>
 </template>
 
@@ -134,7 +134,7 @@ export default {
             'http://192.168.13.74/web/gamePic/img4.jpg',
             'http://192.168.13.74/web/gamePic/logo-j.png',
           ],
-          status: 2,
+          status: 3,
           create_time: 1557049332,
           reply: [
             {
@@ -148,6 +148,7 @@ export default {
               time: 1557079332,
               content: '重新登录后，还是没有看到！',
               images:[
+                'http://192.168.13.74/web/gamePic/synn1.png',
                 'http://uploads.qyy.com/data/bi/20190305/5c7e1fe1de4ea.png',
                 'http://192.168.13.74/web/gamePic/recommend2.jpg',
                 'http://192.168.13.74/web/gamePic/3cb37eca20fc1d1d02d5b649dc250a2a.jpg',
@@ -161,8 +162,8 @@ export default {
               images:[]
             },
           ],
-          is_rate: 1,
-          rate: 5,
+          is_rate: 0,
+          rate: 0,
         }
       ],
       data: ''
@@ -179,8 +180,11 @@ export default {
       val['about_time'] = moment(val['about_time'] * 1000).format('YYYY-MM-DD HH:mm:ss');
       val['create_time'] = moment(val['create_time'] * 1000).format('YYYY-MM-DD HH:mm:ss');
       this.data = val;
-      console.log(this.data);
     },
+    goQuestion() {
+      let id = this.$route.params.id;
+      this.$router.push({ path: `/user/question/${id}` });     
+    }
   },
   mounted() {
     this.getData()
