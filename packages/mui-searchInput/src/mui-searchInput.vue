@@ -1,7 +1,7 @@
 <template>
      <div class="mui-searchInput" >
         <div class="searchicon" @click="handleIconClick"><svg-icon icon-class="search"></svg-icon></div>
-        <div class="input"  v-bind:class="{ inputWidth: !handleShow }">
+        <div class="input"  >
            <input 
               type="text" 
               class="input" 
@@ -13,7 +13,8 @@
               :disabled="disabled"
             />
         </div>
-        <div class="cancel" @click="handleCancel()" v-if="handleShow">取消</div>
+        <!-- <div class="cancel" @click="handleCancel()" v-if="handleShow">取消</div> -->
+        <div class="cancel" @click="handleCancel()" v-if="handleShow"><svg-icon icon-class="delete" ></svg-icon></div>
      </div>
 </template>
 
@@ -67,7 +68,7 @@
 
 <style lang="scss" scoped>
   //搜索框样式
-  $inputBackgroud:rgb(249,249,249);
+  @import '../../../src/styles/skin';
   .mui-searchInput{
        position: relative;
        color:#333;
@@ -77,9 +78,13 @@
             top:10px;
             z-index: 2;
             cursor: pointer;
+            .svg-icon{
+               filter: drop-shadow($black 80px 0);
+               transform: translateX(-80px);
+            }
        }
        .input{
-           width:90%;
+           width:100%;
            display: inline-block;
            input{
                 position: relative;
@@ -96,15 +101,19 @@
                 border: 1px solid #d9d9d9;
                 border-radius: 6px;
                 padding-left:40px;
+                // caret-color: #82daf1d4;
            }
        }
-       .inputWidth{
-          width:100%;
-       }
        .cancel{
-          display: inline-block;
-          font-size:22px; 
-          cursor: pointer; 
+          position: absolute;
+          right:10px;
+          top:10px;
+          z-index: 2;
+          cursor: pointer;
+          .svg-icon{
+              color:$grayc;
+          }
        }
   }
+  
 </style>

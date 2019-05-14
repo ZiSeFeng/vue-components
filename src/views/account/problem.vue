@@ -11,15 +11,23 @@
       </div>
  
       <div class="list">
-          <mui-cell 
-             v-if="data.length>0"
-             v-for="(item, i) in data"
+        <mui-navbar
+          v-for="(item, index) in problemList"
+          :key="index"
+          :titleColor="'#333'"
+          :text="item.title"
+          :rightIcon="'right-arrow'"
+          class="content-card"
+        />
+         <!--  <mui-cell 
+             v-if="problemList.length>0"
+             v-for="(item, i) in problemList"
              :title="item.title" 
              icon="back" 
              is-link
              value="描述文字">  
-          </mui-cell>
-          <div v-if="!data || data.length==0" class="hint">
+          </mui-cell> -->
+          <div v-if="!problemList || problemList.length==0" class="hint">
               没有找到相关问题
           </div>
       </div>
@@ -32,10 +40,12 @@
 </template>
 
 <script>
+import { getListData } from '@/api/account';
 export default {
   data() {
     return {
       searchValue: '',
+      problemList:'',
       data: [
         {
           src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
@@ -112,12 +122,22 @@ export default {
       ]
     };
   },
+  created() {
+    this.getList();
+  },
   methods: {
     submit() {
       alert('aaaaaaaaa');
     },
     search() {
       console.log('search查询');
+    },
+    getList() {
+      getListData().then(res => {
+        console.log(res, '111sssssssssssssssss1',res.data);
+        this.problemList = res.data.list;
+        
+      });
     }
   },
   components: {}
