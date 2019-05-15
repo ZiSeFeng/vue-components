@@ -69,6 +69,7 @@
 <style lang="scss" scoped>
   //搜索框样式
   @import '../../../src/styles/skin';
+  @import '../../../src/styles/mixin';
   .mui-searchInput{
        position: relative;
        color:#333;
@@ -93,7 +94,7 @@
                 padding: 4px 7px;
                 width: 100%;
                 height: 48px;
-                font-size: 18px;
+                font-size: 22px;
                 line-height: 1.5;
                 color: rgba(0, 0, 0, 0.65);
                 background-color:$inputBackgroud;
@@ -102,6 +103,9 @@
                 border-radius: 6px;
                 padding-left:40px;
                 // caret-color: #82daf1d4;
+                @include placeholder {
+                    color:#999;
+                }
            }
        }
        .cancel{

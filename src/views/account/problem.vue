@@ -36,6 +36,8 @@
     <div class="footer">
       <button @click="submit()" class="default-btn">提交问题</button>
     </div>
+
+    <mui-notification :visible='visible' :msg="msg" @on-close="sure()"></mui-notification>
   </div>
 </template>
 
@@ -46,80 +48,8 @@ export default {
     return {
       searchValue: '',
       problemList:'',
-      data: [
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想xv湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '呃呃呃呃呃呃呃呃奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '呃呃呃呃呃呃呃呃奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '呃呃呃呃呃呃呃呃奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-      ]
+      visible:false,
+      msg:'ddddddd奇想江湖奇想江湖奇想江dddcvcxv',
     };
   },
   created() {
@@ -127,16 +57,18 @@ export default {
   },
   methods: {
     submit() {
-      alert('aaaaaaaaa');
+      this.visible = true;
     },
     search() {
       console.log('search查询');
     },
+    sure() {
+      this.visible = false;
+    },
+    
     getList() {
       getListData().then(res => {
-        console.log(res, '111sssssssssssssssss1',res.data);
         this.problemList = res.data.list;
-        
       });
     }
   },
@@ -148,8 +80,9 @@ export default {
 @import '../../../src/styles/skin.scss';
 
 .accountProblem{
-   .mui-cell{
+   .mui-nav {
       padding:20px 0px!important;
+      border-bottom: 1px solid #f2f3f5;
    }
    .hint{
       color:#c8c9cc;

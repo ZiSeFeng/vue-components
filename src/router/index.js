@@ -16,6 +16,7 @@ const Question = () => import('@/views/user/question');
 
 const Service = () => import('@/views/service/index');
 const IndexList = () => import('@/views/indexList/index');
+const Success = () => import('@/views/success');
 
 Vue.use(Router);
 
@@ -82,6 +83,11 @@ export default new Router({
       path: '/indexlist',
       name: 'indexList',
       component: IndexList
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: Success
     }
   ]
 });

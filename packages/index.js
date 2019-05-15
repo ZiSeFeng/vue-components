@@ -8,6 +8,7 @@ import muiIndexSection from './mui-index-section';
 import muiCell from './mui-cell';
 import muiSearchInput from './mui-searchInput';
 import muiCellGrid from './mui-cell-grid';
+import muiNotification from './mui-notification';
 
 // 存储组件列表
 const components = [
@@ -19,7 +20,8 @@ const components = [
   muiIndexSection,
   muiCell,
   muiSearchInput,
-  muiCellGrid
+  muiCellGrid,
+  muiNotification,
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -47,5 +49,6 @@ export default {
   muiSearchInput,
   muiIndexList,
   muiIndexSection,
-  muiCellGrid
+  muiCellGrid,
+  muiNotification
 };
