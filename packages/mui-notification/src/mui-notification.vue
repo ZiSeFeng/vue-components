@@ -3,7 +3,7 @@
         <div class="notification">
             <p>{{msg}}</p>
             <div class="btn">
-              <button @click="handleClick" class="default-btn">确定</button>
+              <mui-button :size="'medium'" @click="handleClick">确定 </mui-button>
             </div>
         </div>
      </div>
@@ -77,8 +77,9 @@
               max-height: 430px;
               overflow-y: auto;
               overflow-x:hidden;
-              margin: 40px 10px;
-              padding:0px 40px;
+              width:68%;
+              margin: 40px auto;
+              // padding:0px 50px;
               word-break:break-all;
               color: #333;
           }
