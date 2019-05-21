@@ -13,6 +13,8 @@ import muiIndicator from './mui-indicator';
 import muiSpinner from './mui-spinner';
 
 import Indicator from './indicator';
+import muiNotification from './mui-notification';
+import muiButton from './mui-button';
 
 // 存储组件列表
 const components = [
@@ -27,7 +29,9 @@ const components = [
   muiCellGrid,
   muiUpload,
   // muiIndicator,
-  muiSpinner
+  muiSpinner,
+  muiNotification,
+  muiButton
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -61,5 +65,7 @@ export default {
   muiCellGrid,
   muiUpload,
   muiIndicator,
-  muiSpinner
+  muiSpinner,
+  muiNotification,
+  muiButton
 };

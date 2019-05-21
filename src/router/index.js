@@ -12,6 +12,8 @@ const GameProblem = () => import('@/views/game/problem');
 const User = () => import('@/views/user/user');
 const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
+const Question = () => import('@/views/user/question');
+
 const Service = () => import('@/views/service/index');
 const IndexList = () => import('@/views/indexList/index');
 const Device = () => import('@/views/service/device');
@@ -19,6 +21,7 @@ const Product = () => import('@/views/service/product');
 const Recharge = () => import('@/views/service/recharge');
 const Amount = () => import('@/views/service/amount');
 const Problem = () => import('@/views/service/problem');
+const Success = () => import('@/views/success');
 
 Vue.use(Router);
 
@@ -77,6 +80,11 @@ export default new Router({
       component: Detail
     },
     {
+      path: '/user/question/:id',
+      name: '问题内容',
+      component: Question
+    },
+    {
       path: '/indexlist',
       name: '索引列表',
       component: IndexList
@@ -105,6 +113,11 @@ export default new Router({
       path: '/problem',
       name: '问题内容',
       component: Problem
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: Success
     }
   ]
 });

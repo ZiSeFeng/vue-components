@@ -11,113 +11,65 @@
       </div>
  
       <div class="list">
-          <mui-cell 
-             v-if="data.length>0"
-             v-for="(item, i) in data"
+        <mui-navbar
+          v-for="(item, index) in problemList"
+          :key="index"
+          :titleColor="'#333'"
+          :text="item.title"
+          :rightIcon="'right-arrow'"
+          class="content-card"
+        />
+         <!--  <mui-cell 
+             v-if="problemList.length>0"
+             v-for="(item, i) in problemList"
              :title="item.title" 
              icon="back" 
              is-link
              value="描述文字">  
-          </mui-cell>
-          <div v-if="!data || data.length==0" class="hint">
+          </mui-cell> -->
+          <div v-if="!problemList || problemList.length==0" class="hint">
               没有找到相关问题
           </div>
       </div>
     </div>
 
     <div class="footer">
-      <button @click="submit()" class="default-btn">提交问题</button>
+      <mui-button :size="'medium'" @click="submit()" >提交问题</mui-button>
     </div>
+    
+    <mui-notification :visible='visible' :msg="msg" @on-close="sure()"></mui-notification>
   </div>
 </template>
 
 <script>
+import { getListData } from '@/api/account';
 export default {
   data() {
     return {
       searchValue: '',
-      data: [
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想xv湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '呃呃呃呃呃呃呃呃奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '呃呃呃呃呃呃呃呃奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '呃呃呃呃呃呃呃呃奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-        {
-          src: 'http://uploads.qyy.com/data/bi/20190305/5c7e21715204d.png',
-          title: '奇想江湖'
-        },
-      ]
+      problemList:'',
+      visible:false,
+      msg:'ddddddd奇想江湖奇想江湖奇想江dddcvcxv',
     };
+  },
+  created() {
+    this.getList();
   },
   methods: {
     submit() {
-      alert('aaaaaaaaa');
+      this.visible = true;
     },
     search() {
       console.log('search查询');
+    },
+    sure() {
+      this.visible = false;
+    },
+    
+    getList() {
+      getListData().then(res => {
+        this.problemList = res.data.list;
+      });
     }
   },
   components: {}
@@ -128,8 +80,9 @@ export default {
 @import '../../../src/styles/skin.scss';
 
 .accountProblem{
-   .mui-cell{
+   .mui-nav {
       padding:20px 0px!important;
+      border-bottom: 1px solid #f2f3f5;
    }
    .hint{
       color:#c8c9cc;
@@ -162,41 +115,12 @@ h4 {
   bottom: 0%;
   width: 100%;
   text-align: center;
-  padding: 20px 0px;
+  padding: 10px 0px;
   background-color: #fff;
 }
 .search {
   padding: 10px 0px;
 }
 
-/*按钮样式*/
-$btnBegin: rgb(254, 80, 115);
-$btnEnd: rgb(233, 71, 75);
-$btnborder: rgb(254, 80, 115);
-.default-btn {
-  width: 60%;
-  height: 46px;
-  background: -webkit-linear-gradient(
-    left,
-    $btnBegin,
-    $btnEnd
-  ); /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(
-    right,
-    $btnBegin,
-    $btnEnd
-  ); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(
-    right,
-    $btnBegin,
-    $btnEnd
-  ); /* Firefox 3.6 - 15 */
-  background: linear-gradient(to right, $btnBegin, $btnEnd); /* 标准的语法 */
-  border: 1px solid $btnborder;
-  font-size: 18px;
-  color: #fff;
-  outline: none;
-  border-radius: 23px;
-  cursor: pointer;
-}
+
 </style>

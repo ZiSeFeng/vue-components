@@ -130,6 +130,17 @@ router.post(
   }
 );
 
+/*accountProblem 更多账号问题*/
+const accountProblemList = require('./account/index.js');
+router.get('/dev-api/account/problem/list', function(ctx) {
+  let res = {
+    code: 0,
+    msg: '成功'
+  };
+  res.data = accountProblemList;
+  ctx.body = res;
+});
+
 app.use(router.routes()).use(router.allowedMethods());
 app.listen(3000);
 console.log('server is running at http://localhost:3000/');

@@ -36,9 +36,9 @@
           v-if="item['images'].length"
         ></img-box>
       </div>
-      <a class="add-question fr">追加提问</a>
+      <a class="add-question fr" @click="goQuestion()">追加提问</a>
     </div>
-    <rate :num="data.rate" :status="data.is_rate"></rate>
+    <rate :num="data.rate" :status="data.is_rate" v-if="data['status'] == 3"></rate>
   </div>
 </template>
 
@@ -158,7 +158,7 @@ export default {
             'http://192.168.13.74/web/gamePic/img4.jpg',
             'http://192.168.13.74/web/gamePic/logo-j.png'
           ],
-          status: 2,
+          status: 3,
           create_time: 1557049332,
           reply: [
             {

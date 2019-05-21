@@ -1,21 +1,43 @@
 <template>
-  <div class="img-box clearfix">
-    <div v-for="(item, index) in data" class="item fl" v-bind:key="index">
-      <img :src="item" />
+  <div class="img-box">
+    <div class="clearfix">
+      <div v-for="(item, index) in data" class="item fl" v-bind:key="index" @click="imgViewFun(index)"><img :src="item"></div>
     </div>
+    <transition name="load">
+      <large-image :imgs="imagesView" :imgView="imgView" v-if="imgViewShow"></large-image>
+    </transition>
   </div>
 </template>
 <script>
+import LargeImage from '@/components/user/largeImage'
 export default {
+  components: {
+    LargeImage
+  },
   props: ['data'],
   data() {
-    return {};
+    return {
+      imgViewShow: false,
+      imagesView: {},
+    };
   },
-  mounted() {},
-  computed: {},
-  methods: {},
-  watch: {}
-};
+  mounted() {
+  },
+  computed: {
+    },
+  methods: {
+    imgView () {
+      this.imgViewShow = false
+    },
+    imgViewFun (key) {
+      this.imgViewShow = true
+      this.imagesView.images = this.data
+      this.imagesView.key = key
+    },
+  },
+  watch: {
+  }
+}
 </script>
 <style lang="scss" scoped>
 .img-box {
