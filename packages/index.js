@@ -8,6 +8,11 @@ import muiIndexSection from './mui-index-section';
 import muiCell from './mui-cell';
 import muiSearchInput from './mui-searchInput';
 import muiCellGrid from './mui-cell-grid';
+import muiUpload from './mui-upload';
+import muiIndicator from './mui-indicator';
+import muiSpinner from './mui-spinner';
+
+import Indicator from './indicator';
 
 // 存储组件列表
 const components = [
@@ -19,7 +24,10 @@ const components = [
   muiIndexSection,
   muiCell,
   muiSearchInput,
-  muiCellGrid
+  muiCellGrid,
+  muiUpload,
+  // muiIndicator,
+  muiSpinner
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -28,6 +36,9 @@ const install = function(Vue) {
   if (install.installed) return;
   // 遍历注册全局组件
   components.map(component => Vue.component(component.name, component));
+
+  Vue.prototype.$muiIndicator = muiIndicator;
+  Vue.$indicator = Vue.prototype.$indicator = Indicator;
 };
 
 // 判断是否是直接引入文件
@@ -47,5 +58,8 @@ export default {
   muiSearchInput,
   muiIndexList,
   muiIndexSection,
-  muiCellGrid
+  muiCellGrid,
+  muiUpload,
+  muiIndicator,
+  muiSpinner
 };

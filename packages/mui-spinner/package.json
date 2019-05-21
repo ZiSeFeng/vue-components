@@ -1,0 +1,12 @@
+{
+  "name": "mui-spinner",
+  "version": "1.0.0",
+  "description": "A spinner component for vue.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}

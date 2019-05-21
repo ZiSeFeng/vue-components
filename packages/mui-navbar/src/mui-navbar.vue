@@ -1,10 +1,10 @@
 <template>
-  <div class="mui-nav">
-    <div class="fl svg-container svg-image mui-nav-left" v-if="leftIcon">
+  <div class="mui-nav" @click="hanldeClick">
+    <div class="fl svg-container svg-image mui-nav-left" v-if="leftIcon" ref="leftIconImg">
       <svg-icon class="svg-left" :icon-class="leftIcon" v-if="isLeftIcon" ></svg-icon>
       <img class="svg-left" :src="leftIcon" v-if="!isLeftIcon" />
     </div>
-    <div class="fl title" :style="{ color: titleColor }">
+    <div class="fl title" :style="{ color: titleColor, 'margin-left': currentLeft + 'px'}">
       <span>{{ text }}</span>
     </div>
     <div class="fr svg-container mui-nav-right" v-if="rightIcon">
@@ -29,10 +29,24 @@ export default {
     isRightIcon: {
       type: Boolean,
       default: true
+    },
+    leftWidth: Number
+  },
+  data() {
+    return {
+      currentLeft: this.leftWidth,
     }
   },
-  created() {
-    // console.log(this, '1111');
+  created() {},
+  mounted() {
+    if (this.currentLeft) {
+      this.currentLeft = -(this.$refs.leftIconImg.getBoundingClientRect().width+this.$refs.leftIconImg.getBoundingClientRect().left+this.$refs.leftIconImg.getBoundingClientRect().right) / 2;
+    }
+  },
+  methods: {
+    hanldeClick(){
+      this.$emit('hanldeClick');
+    }
   }
 };
 </script>

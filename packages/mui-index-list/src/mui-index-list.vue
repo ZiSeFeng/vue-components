@@ -8,7 +8,7 @@
         <li class="mui-index-list-navitem" v-for="(section, index) in sections" :key="index" :index="index + 1">{{ section.index }}</li>
       </ul>
        <div class="mui-index-list-indicator" v-if="showIndicator" v-show="moving" :style="{'top' : currentTop + 'px'}" >
-        <div class="mui-index-list-indicator-img">A</div>
+        <div class="mui-index-list-indicator-text">{{ currentIndicator }}</div>
       </div>
     </div>
   </div>
@@ -88,10 +88,11 @@ export default {
     scrollList(y) {
       let currentItem = document.elementFromPoint(this.navOffsetX, y);
       const index = currentItem.getAttribute('index');
-      this.currentTop = currentItem.offsetHeight * index + 2;
-      if (!currentItem || !currentItem.classList.contains('mui-index-list-navlist')) {
-        return;
-      }
+      this.currentTop = 60 * index ;
+      // console.log(this.currentTop, this.currentIndicator, 'currentTop')
+      // if (!currentItem || !currentItem.classList.contains('mui-index-list-navlist')) {
+      //   return;
+      // }
       this.currentIndicator = currentItem.innerText;
       let targets = this.sections.filter(section => section.index === currentItem.innerText);
       let targetDOM;
@@ -99,6 +100,7 @@ export default {
         targetDOM = targets[0].$el;
         this.$refs.content.scrollTop = targetDOM.getBoundingClientRect().top - this.firstSection.getBoundingClientRect().top;
       }
+      console.log(this.currentTop, this.currentIndicator, 'currentTop')
     }
   },
   mounted() {
@@ -150,7 +152,7 @@ export default {
   flex-direction: column;
 }
 .mui-index-list-navitem {
-  padding: 3px 0;
+  padding: 2Px 0;
   font-size: 20px;
   user-select: none;
   -webkit-touch-callout: none;
@@ -173,11 +175,7 @@ export default {
   width: 1.28rem;
   height: 1.13rem;
   line-height: 0.98rem;
-}
-.mui-index-list-indicator-img {
   background: url('../../../src/assets/images/indictor.png') no-repeat;
   background-size: 100% auto;
-  width: 100%;
-  height: 100%;
 }
 </style>

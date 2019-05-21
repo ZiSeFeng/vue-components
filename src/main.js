@@ -13,8 +13,13 @@ Vue.use(vant);
 
 Vue.config.productionTip = false;
 
-import VueMui from '../packages/index';
+import VueMui from '../packages';
 Vue.use(VueMui);
+
+import { get, post, upload } from './utils/http';
+Vue.prototype.$post = post;
+Vue.prototype.$get = get;
+Vue.prototype.$upload = upload;
 
 new Vue({
   router,

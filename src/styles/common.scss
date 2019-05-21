@@ -1,3 +1,12 @@
+/*login*/
+.login-page {
+  .login-form {
+    .buttom {
+      margin: 1.45rem auto 0.67rem;
+    }
+  }
+}
+
 // home/index.vue
 .home-header {
   .mui-nav {
@@ -99,10 +108,10 @@
 
 /*indexlist*/
 .indexlist-page {
-  .mui-index-section{
+  .mui-index-section {
     .mui-cell {
-      padding: 20px 0 14px;
-      border-bottom: 1px solid #e1e1e1;
+      padding: 24px 0 18px;
+      border-bottom: 1Px solid $borderBottom;
     }
     .mui-cell-text {
       margin-left: 0.38rem;
@@ -113,18 +122,189 @@
     }
   }
   .mui-index-section.index-list-section .mui-index-section-index {
-    padding: 0.4rem 0.44rem 0;
+    padding: 0.178rem 0.44rem 0;
   }
   .mui-nav {
-    height: 0.8rem;
-    line-height: 0.8rem;
-    margin: 16Px 0 0Px 0;
+    height: 1rem;
+    padding-bottom: 0.15rem;
     .fl.title {
       text-align: center;
       font-size: 0.44rem;
       color: $black;
       font-family: $fontSC;
     }
+    .svg-left {
+      font-size: 0.38rem;
+      margin-left: 0.2rem;
+    }
   }
-  
+  .mui-searchInput {
+    margin: 0 0.43rem;
+   .searchicon svg{
+     font-size: 0.42rem;
+     color: $gray3;
+   }
+  }
+  .indexlist-logo {
+    .mui-cell-wrapper {
+      margin-top: 0.20rem;
+    }
+    .indexlist-list-logo {
+      width: 1rem;
+      height: 1rem;
+    }
+    .mui-cell-text {
+      color: $gray3;
+      font-size: 0.39rem;
+    }
+  }
+}
+
+/*service-page*/
+.service-page {
+  .mui-nav {
+    height: 1rem;
+    padding-bottom: 0.15rem;
+    .fl.title {
+      text-align: center;
+      font-size: 0.44rem;
+      color: $black;
+      font-family: $fontSC;
+    }
+    .svg-left {
+      font-size: 0.38rem;
+      margin-left: 0.2rem;
+    }
+  }
+  .service-container {
+    .mui-cell{
+      padding: 0.18rem 0.24rem;
+      border-bottom: 1Px solid $borderBottom;
+    }
+    .mui-cell-text {
+      color: $gray3;
+      font-size: 0.39rem;
+      font-family: $fontSC;
+    }
+    .mui-cell-value.is-link span{
+      color: $gray9;
+      font-size: 0.39rem;
+      font-family: $fontSC;
+    }
+  }
+  .service-upload {
+    margin: 0 0.4rem;
+    .service-uplod-title {
+      text-align: left;
+      font-family: $fontSC;
+      font-size: 0.39rem;
+      color: $gray3;
+      margin: 0.52rem 0;
+    }
+    .mui-upload {
+      .mui-upload-item {
+        width: 2.16rem;
+        height: 2.16rem;
+        background-color: #4aa9f3;
+        margin: 0 0.13rem 0 0;
+        &:last-child{
+          margin: 0;
+        }
+      }
+      .mui-upload-add {
+        width: 2.16rem;
+        height: 2.16rem;
+        background-color: #f0f0f0;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        -webkit-justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
+        .mui-upload-add-image{
+          font-size: 0.36rem;
+          color: #c2c2c2;
+        }
+      }
+    }
+    + .buttom {
+      margin-top: 0.7rem;
+    }
+  }
+}
+
+/* 飞鱼客服 - 选择 */
+.service-change-page {
+  margin-top: 0.12rem;
+  .service-change-content {
+    margin: 0.28rem 0.26rem 0;
+    font-size: 0.44rem;
+    color: $gray3;
+    font-family: $fontSC;
+  }
+  .service-change-title {
+    padding: 0.12rem 0 0.3rem;
+    overflow: hidden;
+    .fl.title {
+      text-align: center;
+    }
+  }
+  .service-change-content {
+    .mui-nav {
+      padding: 0.3rem 0 0.32rem;
+      border-bottom: 1Px solid #e1e1e1;
+    }
+    .fl.title {
+      text-align: left;
+      font-size: 0.44rem;
+    }
+  }
+  .service-change-amount-input,
+  .service-change-problem-input {
+    width: 100%;
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 0.24rem;
+    color: $gray3;
+    padding-left: 0.33rem;
+    @include placeholder {
+      color: $gray9;
+    }
+  }
+  .service-change-amount-input {
+    height: 0.97rem;
+  }
+  .service-change-problem-input {
+    min-height: 5.8rem;
+    line-height: 1rem;
+  }
+}
+
+/* 时间插件 */
+.date-picker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 -0.08rem 0.24rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.24rem;
+  min-height: 5.5rem;
+  .van-hairline--top-bottom.van-picker__toolbar {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    .van-picker__cancel, .van-picker__confirm {
+      font-size: 0.38rem;
+      color: #333;
+      font-family:  PingFang-SC-Bold;
+    }
+  }
+  .van-picker-column {
+    font-size: 0.38rem
+  }
+  .van-picker__columns {
+    height: 2.5rem;
+  }
 }

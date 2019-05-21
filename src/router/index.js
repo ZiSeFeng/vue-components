@@ -14,6 +14,11 @@ const Record = () => import('@/views/user/record');
 const Detail = () => import('@/views/user/detail');
 const Service = () => import('@/views/service/index');
 const IndexList = () => import('@/views/indexList/index');
+const Device = () => import('@/views/service/device');
+const Product = () => import('@/views/service/product');
+const Recharge = () => import('@/views/service/recharge');
+const Amount = () => import('@/views/service/amount');
+const Problem = () => import('@/views/service/problem');
 
 Vue.use(Router);
 
@@ -73,8 +78,33 @@ export default new Router({
     },
     {
       path: '/indexlist',
-      name: 'indexList',
+      name: '索引列表',
       component: IndexList
+    },
+    {
+      path: '/device',
+      name: '设备系统',
+      component: Device
+    },
+    {
+      path: '/product',
+      name: '选择产品',
+      component: Product
+    },
+    {
+      path: '/recharge',
+      name: '充值方式',
+      component: Recharge
+    },
+    {
+      path: '/Amount',
+      name: '充值金额',
+      component: Amount
+    },
+    {
+      path: '/problem',
+      name: '问题内容',
+      component: Problem
     }
   ]
 });

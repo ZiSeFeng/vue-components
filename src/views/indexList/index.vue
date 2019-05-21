@@ -4,9 +4,16 @@
       :titleColor="titleColor"
       :text="textValue"
       :leftIcon="leftIcon"
+      :leftWidth="leftWidth"
     />
-    <!-- <mui-cell :title="textValue" icon="back"></mui-cell> -->
     <mui-searchInput :placeholder="'搜索'" :value="searchInput" />
+    <mui-cell title="飞鱼通行证账号" class="indexlist-logo">
+      <img
+        class="indexlist-list-logo"
+        slot="icon"
+        src="../../assets/images/logo.png"
+      />
+    </mui-cell>
     <mui-index-list>
       <mui-index-section
         class="index-list-section"
@@ -82,9 +89,10 @@ export default {
   data() {
     return {
       alphabet: [],
-      titleColor: '#333',
+      titleColor: '#000',
       textValue: '选择产品名称',
       leftIcon: 'back',
+      leftWidth: 32,
       searchInput: ''
     };
   },
@@ -101,6 +109,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/skin.scss';
+
 .indexlist-list-item-img {
   width: 1rem;
   height: 1rem;

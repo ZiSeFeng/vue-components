@@ -71,9 +71,9 @@ export default {
   width: 100%;
   height: 0.8rem;
   background-color: #fff;
-  border-bottom: 2PX solid $red;
+  border-bottom: 1PX solid $red;
   .line {
-    width: 2PX; /*no*/
+    width: 1PX; /*no*/
     height: 0.47rem;
     background-color: $red;
     float: left;

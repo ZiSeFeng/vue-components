@@ -1,32 +1,32 @@
 <template>
-  <a class="mui-cell" :href="href">
-    <span class="mui-cell-mask" v-if="isLink"></span>
-    <div class="mui-cell-left">
-      <slot name="left"></slot>
-    </div>
-    <div class="mui-cell-wrapper">
-      <div class="mui-cell-title">
-        <slot name="icon">
-          <!-- <i v-if="icon" class="muiui" :class="'muiui-' + icon"></i> -->
-          <svg-icon v-if="icon" :icon-class="icon"></svg-icon>
-        </slot>
-        <slot name="title">
-          <span class="mui-cell-text" v-text="title"></span>
-          <span v-if="label" class="mui-cell-label" v-text="label"></span>
-        </slot>
+  <div @click="clickEvent">
+    <a class="mui-cell" :href="href">
+      <span class="mui-cell-mask" v-if="isLink"></span>
+      <div class="mui-cell-left">
+        <slot name="left"></slot>
       </div>
-      <div class="mui-cell-value" :class="{ 'is-link' : isLink }">
-        <slot>
-          <span v-text="value"></span>
-        </slot>
+      <div class="mui-cell-wrapper">
+        <div class="mui-cell-title">
+          <slot name="icon">
+            <svg-icon v-if="icon" :icon-class="icon"></svg-icon>
+          </slot>
+          <slot name="title">
+            <span class="mui-cell-text" v-text="title"></span>
+            <span v-if="label" class="mui-cell-label" v-text="label"></span>
+          </slot>
+        </div>
+        <div class="mui-cell-value" :class="{ 'is-link' : isLink }">
+          <slot>
+            <span v-text="value"></span>
+          </slot>
+        </div>
+        <svg-icon v-if="isLink" :icon-class="rightIcon"></svg-icon>
       </div>
-      <!-- <i v-if="isLink" class="mui-cell-allow-right"></i> -->
-      <svg-icon v-if="isLink" icon-class="right-allow" class="svg-left"></svg-icon>
-    </div>
-    <div class="mui-cell-right">
-      <slot name="right"></slot>
-    </div>
-  </a>
+      <div class="mui-cell-right">
+        <slot name="right"></slot>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -49,7 +49,7 @@
  * <mui-cell title="标题文字" icon="back">
  *   <div slot="value">描述文字啊哈</div>
  * </mui-cell>
- * <mui-cell title="标题文字" icon="user" is-link value="描述问题" />
+   <mui-cell title="标题文字" icon="user" is-link value="描述问题" />
     <mui-cell title="标题文字" icon="back">
       <div slot="value">描述文字啊哈</div>
     </mui-cell>
@@ -78,6 +78,10 @@ export default {
   props: {
     to: [String, Object],
     icon: String,
+    rightIcon: {
+      type: String,
+      default: 'right-arrow'
+    },
     title: String,
     label: String,
     isLink: String,
@@ -98,13 +102,14 @@ export default {
       return this.to;
     }
   },
-  created() {
-    
-  },
+  created() {},
   methods: {
     handleClick($event) {
       $event.preventDefault();
       this.$router.push(this.href)
+    },
+    clickEvent(){
+      this.$emit('clickEvent')
     }
   },
 }
@@ -135,12 +140,6 @@ export default {
   transform: translate3d(-100%,0,0);
 }
 .mui-cell-wrapper {
-  // background-image: -webkit-linear-gradient(top,$gray ,$gray  50%,transparent 0);
-  // background-image: linear-gradient(180deg,$gray ,$gray  50%,transparent 0);
-  // background-size: 120% 1px;
-  // background-repeat: no-repeat;
-  // background-position: 0 0;
-  // background-origin: content-box;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -183,9 +182,6 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
-.mui-cell-value.is-link{
-  margin-right: 24px;
-}
 .mui-cell-right {
   position: absolute;
   height: 100%;
@@ -216,8 +212,5 @@ export default {
   height: 5px;
   -webkit-transform: translateY(-50%) rotate(45deg);
   transform: translateY(-50%) rotate(45deg);
-}
-.svg-left {
-  font-size: 32px;
 }
 </style>
