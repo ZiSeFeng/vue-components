@@ -5,7 +5,7 @@
   @touchend="moveEnd">
     <slot></slot>
     <ul ref="container" class="mui-swiper-container" :style="{ width: containerWidth + 'px', height: containerHeight + 'px'}">
-      <li class="mui-swiper-item" v-for="(item, index) in swiperList" :key="index">
+      <li class="mui-swiper-item" v-for="(item, index) in swiperlist" :key="index">
         <a :href="item.url" rel="external nofollow">
           <img class="mui-swiper-item-img" :src="item.img" :alt="item.title"/>
           <p class="mui-swiper-item-title">{{ item.title }}</p>
@@ -60,6 +60,7 @@ export default{
       duration: 300,
       container: null,
       items: [],
+      swiperlist: [],
       length: 0,
       active: 0,
       sensitivity: 60, // 触发切换的阈值
@@ -85,7 +86,8 @@ export default{
     },
   },
   created() {
-
+    this.swiperlist = this.swiperList;
+    this.swiperlist.push(this.swiperList[0]);
   },
   mounted() {
     this.init();
@@ -242,10 +244,11 @@ export default{
   text-align: center;
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  float: left;
 }
 .mui-swiper-item-img {
   width: 100%;

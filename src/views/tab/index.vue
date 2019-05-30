@@ -1,209 +1,64 @@
 <template>
-  <div id="slider">
-    <div class="window" @mouseover="stop" @mouseleave="play">
-      <ul class="container" :style="containerStyle">
-        <li>
-          <img :src="sliders[sliders.length - 1].img" alt="">
-        </li>
-        <li v-for="(item, index) in sliders" :key="index">
-          <img :src="item.img" alt="">
-        </li>
-        <li>
-          <img :src="sliders[0].img" alt="">
-        </li>
-      </ul>
-      <ul class="direction">
-        <li class="left" @click="move(750, 1, speed)">
-          <svg class="icon" width="30px" height="30.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M481.233 904c8.189 0 16.379-3.124 22.628-9.372 12.496-12.497 12.496-32.759 0-45.256L166.488 512l337.373-337.373c12.496-12.497 12.496-32.758 0-45.255-12.498-12.497-32.758-12.497-45.256 0l-360 360c-12.496 12.497-12.496 32.758 0 45.255l360 360c6.249 6.249 14.439 9.373 22.628 9.373z"  /></svg>          
-        </li>
-        <li class="right" @click="move(750, -1, speed)">
-          <svg class="icon" width="30px" height="30.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M557.179 904c-8.189 0-16.379-3.124-22.628-9.372-12.496-12.497-12.496-32.759 0-45.256L871.924 512 534.551 174.627c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0l360 360c12.496 12.497 12.496 32.758 0 45.255l-360 360c-6.249 6.249-14.439 9.373-22.628 9.373z"  /></svg>          
-        </li>
-      </ul>
-      <ul class="dots">
-        <li v-for="(dot, i) in sliders" :key="i" 
-        :class="{dotted: i === (currentIndex-1)}"
-        @click = jump(i+1)
-        >
-        </li>
-      </ul>
-    </div>
-  </div>
+  <md-card>
+    <md-card-actions>
+      <div class="md-subhead">
+        <span>Loop Mode with Multiple Slides Per Group</span>
+        <span>（</span>
+        <span>Loop 模式 + Slides 分组</span>
+        <span>）</span>
+      </div>
+      <md-button class="md-icon-button"
+                 target="_blank"
+                 href="https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/21-infinite-loop-with-slides-per-group.vue">
+        <md-icon>code</md-icon>
+      </md-button>
+    </md-card-actions>
+    <md-card-media>
+      <!-- swiper -->
+      <swiper :options="swiperOption">
+        <swiper-slide>Slide 1</swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide>Slide 7</swiper-slide>
+        <swiper-slide>Slide 8</swiper-slide>
+        <swiper-slide>Slide 9</swiper-slide>
+        <swiper-slide>Slide 10</swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+      </swiper>
+    </md-card-media>
+  </md-card>
 </template>
 
 <script>
-export default {
-  name: 'slider',
-  props: {
-    initialSpeed: {
-      type: Number,
-      default: 30
-    },
-    initialInterval: {
-      type: Number,
-      default: 4
-    }
-  },
-  data () {
-    return {
-      sliders:[
-        {
-          title: '魔界塔官网',
-          img:
-            'http://pms-1251262620.cosgz.myqcloud.com/807c1aa485b61dd3fc8b27b3c5f1ba13.jpeg',
-          url: '#'
-        },
-        {
-          title: '兽化三国',
-          img:
-            'http://pms-1251262620.cosgz.myqcloud.com/493ce3a87308da2ba18ad935bf1090c4.jpeg',
-          url: '#'
-        },
-        {
-          title: '咔叽探险队',
-          img:
-            'http://pms-1251262620.cosgz.myqcloud.com/c9c9edc0409d76dfe105e8a605b1d3f9.jpeg',
-          url: '#'
-        }
-      ],
-      currentIndex:1,
-      distance:-750,
-      transitionEnd: true,
-      speed: this.initialSpeed
-    }
-  },
-  computed:{
-    containerStyle() {
+import Vue from 'vue';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+
+  export default {
+    data() {
       return {
-        transform:`translate3d(${this.distance}px, 0, 0)`
-      }
-    },
-    interval() {
-      return this.initialInterval * 1000
-    }
-  },
-  mounted() {
-    this.init()
-  },
-  methods:{
-    init() {
-      this.play()
-      window.onblur = function() { this.stop() }.bind(this)
-      window.onfocus = function() { this.play() }.bind(this)
-    },
-    move(offset, direction, speed) {
-      if (!this.transitionEnd) return
-      this.transitionEnd = false
-      direction === -1 ? this.currentIndex += offset/750 : this.currentIndex -= offset/750
-      if (this.currentIndex > 5) this.currentIndex = 1
-      if (this.currentIndex < 1) this.currentIndex = 5
-
-      const destination = this.distance + offset * direction
-      this.animate(destination, direction, speed)
-    },
-    animate(des, direc, speed) {
-      if (this.temp) { 
-        window.clearInterval(this.temp)
-        this.temp = null 
-      }
-      this.temp = window.setInterval(() => {
-        if ((direc === -1 && des < this.distance) || (direc === 1 && des > this.distance)) {
-          this.distance += speed * direc
-        } else {
-          this.transitionEnd = true
-          window.clearInterval(this.temp)
-          this.distance = des
-          if (des < -3000) this.distance = -750
-          if (des > -750) this.distance = -3000
+        swiperOption: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          slidesPerGroup: 3,
+          loop: true,
+          loopFillGroupWithBlank: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }
         }
-      }, 20)
-    },
-    jump(index) {
-      const direction = index - this.currentIndex >= 0 ? -1 : 1
-      const offset = Math.abs(index - this.currentIndex) * 750
-      const jumpSpeed = Math.abs(index - this.currentIndex) === 0 ? this.speed : Math.abs(index - this.currentIndex) * this.speed 
-      this.move(offset, direction, jumpSpeed)
-    },
-    play() {
-      if (this.timer) {
-        window.clearInterval(this.timer)
-        this.timer = null
       }
-      this.timer = window.setInterval(() => {
-        this.move(750, -1, this.speed)
-      }, this.interval)
-    },
-    stop() {
-      window.clearInterval(this.timer)
-      this.timer = null
     }
   }
-}
 </script>
-
-<style scoped>
-*{
-  box-sizing: border-box;
-  margin:0;
-  padding:0;
-}
-ol,ul{
-  list-style: none;
-}
-#slider{
-  text-align: center;
-}
-.window{
-  position:relative;
-  width:600Px;
-  height:400px;
-  margin:0 auto;
-  overflow:hidden;
-}
-.container{
-  display:flex;
-  position:absolute;
-}
-.left, .right{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:50px;
-  height:50px;
-  background-color:rgba(0,0,0,.3);
-  border-radius:50%;
-  cursor:pointer;
-}
-.left{
-  left:3%;
-  padding-left:12px;
-  padding-top:10px;
-}
-.right{
-  right:3%;
-  padding-right:12px;
-  padding-top:10px;
-}
-img{
-  user-select: none;
-}
-.dots{
-    position:absolute;
-    bottom:10px;
-    left:50%;
-    transform:translateX(-50%);
-  }
-.dots li{
-  display:inline-block;
-  width:15px;
-  height:15px;
-  margin:0 3px;
-  border:1px solid white;
-  border-radius:50%;
-  background-color:#333;
-  cursor:pointer;
-}
-.dots .dotted{
-  background-color:orange;
-}
-</style>
