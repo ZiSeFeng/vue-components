@@ -1,123 +1,54 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-const Home = () => import('@/views/home/index');
-const Login = () => import('@/views/login/index');
-
-const ProblemDetails = () => import('@/views/problemDetails/index');
-const AccountProblem = () => import('@/views/account/problem');
-const GameList = () => import('@/views/game/list');
-const GameProblem = () => import('@/views/game/problem');
-
-const User = () => import('@/views/user/user');
-const Record = () => import('@/views/user/record');
-const Detail = () => import('@/views/user/detail');
-const Question = () => import('@/views/user/question');
-
-const Service = () => import('@/views/service/index');
-const IndexList = () => import('@/views/indexList/index');
-const Device = () => import('@/views/service/device');
-const Product = () => import('@/views/service/product');
-const Recharge = () => import('@/views/service/recharge');
-const Amount = () => import('@/views/service/amount');
-const Problem = () => import('@/views/service/problem');
-const Success = () => import('@/views/success');
-
 Vue.use(Router);
+
+const Button = () => import('@/views/button/index');
+const Dialog = () => import('@/views/dialog/index');
+const MessageBox = () => import('@/views/messageBox/index');
+const Datepicker = () => import('@/views/datepicker/index');
+const Swiper = () => import('@/views/swiper/index');
+const Upload = () => import('@/views/upload/index');
+const Tab = () => import('@/views/tab/index');
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/button',
+      name: '按钮',
+      component: Button
     },
     {
-      path: '/login',
-      name: 'login',
-      component: Login
+      path: '/dialog',
+      name: '弹窗',
+      component: Dialog
     },
     {
-      path: '/problemDetails',
-      name: 'problemDetails',
-      component: ProblemDetails
+      path: '/messageBox',
+      name: '提示框',
+      component: MessageBox
     },
     {
-      path: '/accountProblem',
-      name: 'accountProblem',
-      component: AccountProblem
+      path: '/datepicker',
+      name: '日期插件',
+      component: Datepicker
     },
     {
-      path: '/gameList',
-      name: 'gameList',
-      component: GameList
+      path: '/swiper',
+      name: '轮播图',
+      component: Swiper
     },
     {
-      path: '/gameProblem',
-      name: 'gameProblem',
-      component: GameProblem
+      path: '/upload',
+      name: '上传组件',
+      component: Upload
     },
     {
-      path: '/service',
-      name: 'service',
-      component: Service
-    },
-    {
-      path: '/user',
-      name: '个人中心',
-      component: User
-    },
-    {
-      path: '/user/record',
-      name: '服务记录',
-      component: Record
-    },
-    {
-      path: '/user/detail/:id',
-      name: '服务详情',
-      component: Detail
-    },
-    {
-      path: '/user/question/:id',
-      name: '问题内容',
-      component: Question
-    },
-    {
-      path: '/indexlist',
-      name: '索引列表',
-      component: IndexList
-    },
-    {
-      path: '/device',
-      name: '设备系统',
-      component: Device
-    },
-    {
-      path: '/product',
-      name: '选择产品',
-      component: Product
-    },
-    {
-      path: '/recharge',
-      name: '充值方式',
-      component: Recharge
-    },
-    {
-      path: '/Amount',
-      name: '充值金额',
-      component: Amount
-    },
-    {
-      path: '/problem',
-      name: '问题内容',
-      component: Problem
-    },
-    {
-      path: '/success',
-      name: 'success',
-      component: Success
+      path: '/tab',
+      name: 'tab',
+      component: Tab
     }
   ]
 });

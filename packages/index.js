@@ -11,10 +11,14 @@ import muiCellGrid from './mui-cell-grid';
 import muiUpload from './mui-upload';
 import muiIndicator from './mui-indicator';
 import muiSpinner from './mui-spinner';
-
 import Indicator from './indicator';
 import muiNotification from './mui-notification';
 import muiButton from './mui-button';
+import muiProgress from './mui-progress';
+import muiDialog from './mui-dialog';
+import muiMessageBox from './mui-message-box';
+import muiDatepicker from './mui-datepicker';
+import muiSwiper from './mui-swiper';
 
 // 存储组件列表
 const components = [
@@ -31,7 +35,11 @@ const components = [
   // muiIndicator,
   muiSpinner,
   muiNotification,
-  muiButton
+  muiButton,
+  muiProgress,
+  muiDialog,
+  muiDatepicker,
+  muiSwiper
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -43,6 +51,11 @@ const install = function(Vue) {
 
   Vue.prototype.$muiIndicator = muiIndicator;
   Vue.$indicator = Vue.prototype.$indicator = Indicator;
+  Vue.$mydialog = Vue.prototype.$mydialog = muiDialog;
+  Vue.$alert = Vue.prototype.$alert = muiMessageBox.alert;
+  Vue.$confirm = Vue.prototype.$confirm = muiMessageBox.confirm;
+  Vue.$prompt = Vue.prototype.$prompt = muiMessageBox.prompt;
+  Vue.$close = Vue.prototype.$close = muiMessageBox.close;
 };
 
 // 判断是否是直接引入文件
@@ -67,5 +80,9 @@ export default {
   muiIndicator,
   muiSpinner,
   muiNotification,
-  muiButton
+  muiButton,
+  muiProgress,
+  muiDialog,
+  muiDatepicker,
+  muiSwiper
 };
