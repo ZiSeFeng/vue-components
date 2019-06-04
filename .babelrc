@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "vue-mui",
+        "styleLibraryName": "~node_modules/vue-mui/static"
+      }
+    ]
+  ]
+}

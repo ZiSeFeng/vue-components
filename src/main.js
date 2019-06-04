@@ -12,6 +12,8 @@ Vue.config.productionTip = false;
 
 import VueMui from '../packages';
 Vue.use(VueMui);
+// console.log(VueMui, VueMui.muiTip, 'muiTip 12212');
+// Vue.use(VueMui.muiTip.directive, { directiveName: 'tip' });
 
 import { get, post, upload } from './utils/http';
 Vue.prototype.$post = post;

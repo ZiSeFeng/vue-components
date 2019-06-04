@@ -16,7 +16,7 @@
       <span v-for="(len, i) in length" :key="len" class="mui-swiper-indicator-dot" :class="{'on': i === active }" @click="go(i)"></span>
     </div>
     <slot name="pagination">
-      <div ref="pagination" class="mui-swiper-pagination" v-if="pagination">
+      <div ref="pagination" class="mui-swiper-pagination" v-if="!pagination">
         <div class="mui-swiper-prev">
           <i class="iconfont" :class="pagination[0]" :data="active" @click="prev"></i>
         </div>
@@ -237,18 +237,19 @@ export default{
 }
 .mui-swiper-container {
   overflow: hidden;
-  position: relative;
+  // position: relative;
   height: 100%;
+  width: 100%;
 }
 .mui-swiper-item {
   text-align: center;
   width: 100%;
   height: 100%;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  // float: left;
 }
 .mui-swiper-item-img {
   width: 100%;

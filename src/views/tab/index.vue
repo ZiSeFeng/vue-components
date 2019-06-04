@@ -7,9 +7,11 @@
         <span>Loop 模式 + Slides 分组</span>
         <span>）</span>
       </div>
-      <md-button class="md-icon-button"
-                 target="_blank"
-                 href="https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/21-infinite-loop-with-slides-per-group.vue">
+      <md-button
+        class="md-icon-button"
+        target="_blank"
+        href="https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/21-infinite-loop-with-slides-per-group.vue"
+      >
         <md-icon>code</md-icon>
       </md-button>
     </md-card-actions>
@@ -37,28 +39,28 @@
 <script>
 import Vue from 'vue';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import 'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper)
+import 'swiper/dist/css/swiper.css';
+Vue.use(VueAwesomeSwiper);
 
-  export default {
-    data() {
-      return {
-        swiperOption: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-          slidesPerGroup: 3,
-          loop: true,
-          loopFillGroupWithBlank: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          }
+export default {
+  data() {
+    return {
+      swiperOption: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
         }
       }
-    }
+    };
   }
+};
 </script>

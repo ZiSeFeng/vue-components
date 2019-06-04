@@ -1,4 +1,3 @@
-'use strict';
 const path = require('path');
 
 function resolve(dir) {
@@ -10,14 +9,14 @@ const mockPort = 3000; // mock server port
 
 module.exports = {
   // 修改默认的入口
-  pages: {
-    index: {
-      entry: 'src/main.js',
-      template: 'public/index.html',
-      filename: 'index.html'
-    }
-  },
-  lintOnSave: true, // 关闭eslint规范
+  // pages: {
+  //   index: {
+  //     entry: 'src/main.js',
+  //     template: 'public/index.html',
+  //     filename: 'index.html'
+  //   }
+  // },
+  // lintOnSave: true, // 关闭eslint规范
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -42,7 +41,8 @@ module.exports = {
       }
     }
   },
-  filenameHashing: true,
+  productionSourceMap: false,
+  // filenameHashing: true,
   // css: {
   //   loaderOptions: {
   //     css: {},
@@ -123,7 +123,7 @@ module.exports = {
       .use('url-loader')
       .loader('url-loader')
       .options({
-        name: 'images/[name].[ext]',
+        name: 'img/[name].[ext]',
         limit: 1000
       })
       .end();
@@ -164,11 +164,6 @@ module.exports = {
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
             chunks: 'initial' // only package third parties that are initially dependent
-          },
-          elementUI: {
-            name: 'chunk-elementUI', // split elementUI into a single package
-            priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-            test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
           },
           commons: {
             name: 'chunk-commons',

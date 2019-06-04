@@ -1,0 +1,22 @@
+{
+  "mui-button": "./packages/mui-button",
+  "mui-cell": "./packages/mui-cell",
+  "mui-cell-grid": "./packages/mui-cell-grid",
+  "mui-datepicker": "./packages/mui-datepicker",
+  "mui-dialog": "./packages/mui-dialog",
+  "mui-grid": "./packages/mui-grid",
+  "mui-index-list": "./packages/mui-index-list",
+  "mui-index-section": "./packages/mui-index-section",
+  "mui-indicator": "./packages/mui-indicator",
+  "mui-input": "./packages/mui-input",
+  "mui-message": "./packages/mui-message",
+  "mui-message-box": "./packages/mui-message-box",
+  "mui-navbar": "./packages/mui-navbar",
+  "mui-notifiction": "./packages/mui-notification",
+  "mui-progress": "./packages/mui-progress",
+  "mui-searchInput": "./packages/mui-searchInput",
+  "mui-spinner": "./packages/mui-spinner",
+  "mui-swipe": "./packages/mui-swiper",
+  "mui-upload": "./packages/mui-upload",
+  "index": "./packages/index.js"
+}

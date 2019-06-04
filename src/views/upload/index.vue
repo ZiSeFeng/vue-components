@@ -66,11 +66,7 @@ export default {
     return {
       action: 'http://localhost:3000/dev-api/service/upload/img',
       // action: "http://zz-tf.com/dbcenter/pagerFile/saveCompanyPagerFiles",
-      data: {
-        token: '555',
-        uname: '郜仕伟',
-        pagerFileId: 'e37e4c37-4289-4bb9-aa42-903e48aef39e'
-      },
+      data: {},
       fileType: ['gif', 'png'], // 可以接受的文件类型
       uploadFileList: [] // 文件上传的列表
     };

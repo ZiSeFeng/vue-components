@@ -19,6 +19,7 @@ import muiDialog from './mui-dialog';
 import muiMessageBox from './mui-message-box';
 import muiDatepicker from './mui-datepicker';
 import muiSwiper from './mui-swiper';
+import muiTip from './mui-tip';
 
 // 存储组件列表
 const components = [
@@ -56,6 +57,9 @@ const install = function(Vue) {
   Vue.$confirm = Vue.prototype.$confirm = muiMessageBox.confirm;
   Vue.$prompt = Vue.prototype.$prompt = muiMessageBox.prompt;
   Vue.$close = Vue.prototype.$close = muiMessageBox.close;
+  Vue.$tip = Vue.prototype.$tip = muiTip.tip;
+  Vue.use(muiTip.directive, { directiveName: 'tip' });
+  // Vue.use(muiTip.directive);
 };
 
 // 判断是否是直接引入文件
@@ -84,5 +88,6 @@ export default {
   muiProgress,
   muiDialog,
   muiDatepicker,
-  muiSwiper
+  muiSwiper,
+  muiTip
 };

@@ -40,14 +40,14 @@ export default {
   size: 100%;
   position: absolute 0 * 0;
 }
-@for $i from 2 to 12 {
-  .mui-spinner-fading-circle-circle.is-circle-#{$i} {
-    transform: rotate(calc(360deg / 12 * ($i - 1)));
-    &::before {
-      animation-delay: calc(-1.2s + 1.2s / 12 * ($i - 1));
-    }
-  }
-}
+// @for $i from 2 to 12 {
+//   .mui-spinner-fading-circle-circle.is-circle-#{$i} {
+//     transform: rotate(calc(360deg / 12 * ($i - 1)));
+//     &::before {
+//       animation-delay: calc(-1.2s + 1.2s / 12 * ($i - 1));
+//     }
+//   }
+// }
 .mui-spinner-fading-circle:before {
   content: '';
   display: block;
