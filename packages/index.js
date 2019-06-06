@@ -20,6 +20,10 @@ import muiMessageBox from './mui-message-box';
 import muiDatepicker from './mui-datepicker';
 import muiSwiper from './mui-swiper';
 import muiTip from './mui-tip';
+import muiCheckbox from './mui-checkbox';
+import muiCheckboxGroup from './mui-checkbox-group';
+import muiRadio from './mui-radio';
+import muiRadioGroup from './mui-radio-group';
 
 // 存储组件列表
 const components = [
@@ -40,7 +44,11 @@ const components = [
   muiProgress,
   muiDialog,
   muiDatepicker,
-  muiSwiper
+  muiSwiper,
+  muiCheckbox,
+  muiCheckboxGroup,
+  muiRadio,
+  muiRadioGroup
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -89,5 +97,9 @@ export default {
   muiDialog,
   muiDatepicker,
   muiSwiper,
-  muiTip
+  muiTip,
+  muiCheckbox,
+  muiCheckboxGroup,
+  muiRadio,
+  muiRadioGroup
 };

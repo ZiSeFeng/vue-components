@@ -12,6 +12,7 @@ const Swiper = () => import('@/views/swiper/index');
 const Upload = () => import('@/views/upload/index');
 const Tab = () => import('@/views/tab/index');
 const Tip = () => import('@/views/tip/index');
+const Checkbox = () => import('@/views/checkbox/index');
 
 export default new Router({
   mode: 'history',
@@ -54,13 +55,18 @@ export default new Router({
     },
     {
       path: '/tab',
-      name: 'tab',
+      name: '标签页tab',
       component: Tab
     },
     {
       path: '/tip',
-      name: 'tip',
+      name: '提示tip',
       component: Tip
+    },
+    {
+      path: '/checkbox',
+      name: '多选框Checkbox',
+      component: Checkbox
     }
   ]
 });

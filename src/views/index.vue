@@ -21,6 +21,9 @@
     <div class="home-btn">
       <router-link to="/tip">提示tip</router-link>
     </div>
+    <div class="home-btn">
+      <router-link to="/checkbox">多选框checkout</router-link>
+    </div>
   </div>
 </template>
 
