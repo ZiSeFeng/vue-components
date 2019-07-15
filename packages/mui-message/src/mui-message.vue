@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     // 确定,将promise断定为resolve状态
-    confirm: function () {
+    confirm () {
       this.isShowMessageBox = false;
       if (this.isShowInput) {
         this.resolve(this.inputValue);
@@ -68,13 +68,13 @@ export default {
       this.remove();
     },
     // 取消,将promise断定为reject状态
-    cancel: function () {
+    cancel () {
       this.isShowMessageBox = false;
       this.reject('cancel');
       this.remove();
     },
     // 弹出messageBox,并创建promise对象
-    showMsgBox: function () {
+    showMsgBox () {
       this.isShowMessageBox = true;
       this.promise = new Promise((resolve, reject) => {
         this.resolve = resolve;
@@ -83,12 +83,12 @@ export default {
       // 返回promise对象
       return this.promise;
     },
-    remove: function () {
+    remove () {
       setTimeout(() => {
         this.destroy();
       }, 300);
     },
-    destroy: function () {
+    destroy () {
       this.$destroy();
       document.body.removeChild(this.$el);
     }

@@ -24,6 +24,8 @@ import muiCheckbox from './mui-checkbox';
 import muiCheckboxGroup from './mui-checkbox-group';
 import muiRadio from './mui-radio';
 import muiRadioGroup from './mui-radio-group';
+import muiSelect from './mui-select';
+import muiOption from './mui-option';
 
 // 存储组件列表
 const components = [
@@ -48,7 +50,9 @@ const components = [
   muiCheckbox,
   muiCheckboxGroup,
   muiRadio,
-  muiRadioGroup
+  muiRadioGroup,
+  muiSelect,
+  muiOption
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -101,5 +105,7 @@ export default {
   muiCheckbox,
   muiCheckboxGroup,
   muiRadio,
-  muiRadioGroup
+  muiRadioGroup,
+  muiSelect,
+  muiOption
 };

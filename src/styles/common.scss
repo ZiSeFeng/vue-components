@@ -202,15 +202,6 @@
       margin: 0.52rem 0;
     }
     .mui-upload {
-      .mui-upload-item {
-        width: 2.16rem;
-        height: 2.16rem;
-        background-color: #4aa9f3;
-        margin: 0 0.13rem 0 0;
-        &:last-child{
-          margin: 0;
-        }
-      }
       .mui-upload-add {
         width: 2.16rem;
         height: 2.16rem;
@@ -221,6 +212,7 @@
         -webkit-justify-content: center;
         align-items: center;
         -webkit-align-items: center;
+        margin-top: 0.2rem;
         .mui-upload-add-image{
           font-size: 0.36rem;
           color: #c2c2c2;
