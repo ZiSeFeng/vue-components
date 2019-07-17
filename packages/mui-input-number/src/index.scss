@@ -1,0 +1,40 @@
+.mui-input-number{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 30px;
+  text-align: left;
+  .mui-input-number__input {
+    width: calc( 100% - 10px - 40px * 2 -4px);
+    height: 100%;
+    background-color: #fff;
+    font-size: 30px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10Px;
+    float: left;
+    margin: 0 2px;
+  }
+  .mui-input-number__reduce,
+  .mui-input-number__add {
+    background-color: #e8474a;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    width: 40px;
+    height: 39px;
+    border: none;
+    float: left;
+    border: 1px solid #e8474a;
+    &:disabled{
+      cursor: no-allowed;
+      pointer-events: none;
+      filter: alpha(opacity=65);
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      opacity: 0.65;
+      background-color: #ccc;
+      border-color: #ccc;
+    }
+  }
+}

@@ -13,6 +13,9 @@ const Upload = () => import('@/views/upload/index');
 const Tab = () => import('@/views/tab/index');
 const Tip = () => import('@/views/tip/index');
 const Checkbox = () => import('@/views/checkbox/index');
+const InputNumber = () => import('@/views/input-number/index');
+const Tabs = () => import('@/views/tabs/index');
+const Dropdown = () => import('@/views/dropdown/index');
 
 export default new Router({
   mode: 'history',
@@ -67,6 +70,21 @@ export default new Router({
       path: '/checkbox',
       name: '多选框Checkbox',
       component: Checkbox
+    },
+    {
+      path: '/inputnumber',
+      name: '计数器',
+      component: InputNumber
+    },
+    {
+      path: '/tabs',
+      name: '标签页',
+      component: Tabs
+    },
+    {
+      path: '/dropdown',
+      name: '下拉菜单',
+      component: Dropdown
     }
   ]
 });

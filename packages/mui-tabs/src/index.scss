@@ -1,0 +1,48 @@
+.mui-tabs{
+  font-size: 30px;
+  color: #657180;
+}
+.mui-tabs-bar:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #d7dd34;
+  margin-top: -1px;
+}
+.mui-tabs-tab {
+  display: inline-block;
+  padding: 4px 6px;
+  margin-right: 6px;
+  background: #fff;
+  border: 1px solid #d7dde4;
+  cursor: pointer;
+  position: relative;
+}
+.mui-tabs-tab-active {
+  color: #3399ff;
+  border-top: 1px solid #3399ff;
+  border-bottom: 1px solid #fff;
+  transform: translateY(-1px);
+  transition: transform 0.5s;
+}
+.mui-tabs-tab-active:before{
+  content: '';
+  display: block;
+  height: 1px;
+  background: #3399ff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.mui-tabs-close {
+  color: #ff6666;
+}
+.mui-tabs-close:before{
+  content: '\2716';
+}
+.mui-tabs-close:hover {
+  color: #990033;
+  font-weight: bolder;
+}

@@ -24,6 +24,15 @@
     <div class="home-btn">
       <router-link to="/checkbox">多选框checkout</router-link>
     </div>
+    <div class="home-btn">
+      <router-link to="/inputnumber">计数器</router-link>
+    </div>
+    <div class="home-btn">
+      <router-link to="/tabs">标签页</router-link>
+    </div>
+    <div class="home-btn">
+      <router-link to="/dropdown">下拉菜单</router-link>
+    </div>
   </div>
 </template>
 

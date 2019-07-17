@@ -26,6 +26,10 @@ import muiRadio from './mui-radio';
 import muiRadioGroup from './mui-radio-group';
 import muiSelect from './mui-select';
 import muiOption from './mui-option';
+import muiInputNumber from './mui-input-number';
+import muiTabs from './mui-tabs';
+import muiPane from './mui-pane';
+import muiDropdown from './mui-dropdown';
 
 // 存储组件列表
 const components = [
@@ -52,7 +56,11 @@ const components = [
   muiRadio,
   muiRadioGroup,
   muiSelect,
-  muiOption
+  muiOption,
+  muiInputNumber,
+  muiTabs,
+  muiPane,
+  muiDropdown
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -107,5 +115,9 @@ export default {
   muiRadio,
   muiRadioGroup,
   muiSelect,
-  muiOption
+  muiOption,
+  muiInputNumber,
+  muiTabs,
+  muiPane,
+  muiDropdown
 };
