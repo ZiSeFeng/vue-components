@@ -30,14 +30,20 @@
 .mui-message-box-title {
   position: relative;
   padding: 20px 18px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 18px;
   color: #444;
-  border-bottom: 1px solid #e9e9e9;
+  span.center {
+    text-align: center;
+    display: block;
+  }
 }
 
 .mui-message-box-close {
-  float: right;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translate(0, -50%)
 }
 
 .mui-message-box-input {
@@ -45,8 +51,11 @@
   border-radius: 5px;
   padding: 4px 5px;
   width: 100%;
+  height: 32px;
+  line-height: 32px;
   appearance: none;
   outline: none;
+  font-size: 14px;
 }
 
 .mui-message-box-input.invalid {
@@ -57,12 +66,14 @@
 }
 
 .mui-message-box-content {
-  padding: 20px 18px;
-  border-bottom: 1px solid #e9e9e9;
+  padding: 0 18px;
+  &.center {
+    text-align: center;
+  }
 }
 
 .mui-message-box-message {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   color: #666;
 }
@@ -74,13 +85,21 @@
 .mui-message-box-btns {
   text-align: center;
   margin: 20px 18px;
+  height: 34px;
+  text-align: right;
+  &.center {
+    text-align: center;
+  }
 }
 
 .mui-message-box-cancel,
 .mui-message-box-confirm {
   color: #fff;
   font-size: 14px;
-  margin: 0 10px;
+}
+
+.mui-message-box-cancel {
+  margin-right: 10px;
 }
 
 .mui-message-box-errormsg {

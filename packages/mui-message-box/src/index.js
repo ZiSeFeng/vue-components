@@ -53,7 +53,9 @@ const defaultCallback = action => {
           currentMsg.resolve(action);
         }
       } else if (action === 'cancel' && currentMsg.reject) {
-        currentMsg.reject(action);
+        if (currentMsg.reject) {
+          currentMsg.resolve(action);
+        } 
       }
     }
   }

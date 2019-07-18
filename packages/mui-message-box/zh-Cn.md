@@ -11,7 +11,9 @@
 | - | - | - | -:
 | title | 标题 | string | 提示 |
 | message| 消息正文内容 | stirng，html| 无|
+| center | 居中布局 | boolen | false |
 | showinput | 是否显示输入框 | boolean | false （以prompt方式调用时为true）|
+| iconClass | 自定义图标的类名 | String | 无 |
 | closeOnclickModal | 是否可以通过点击遮罩层关闭messageBox| boolean | true（以alert方式时调用时为false|
 | closeOnHashChange | 是否hashchange时关闭MessgeBox | boolean | true |
 | inputValue | 输入框的初始文本 | string | 无 |

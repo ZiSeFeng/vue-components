@@ -1,21 +1,21 @@
 <template>
   <transition name="message-box-fade">
-    <div class="mui-message-box-wrapper"
-      v-show="visible"
-    >
+    <div class="mui-message-box-wrapper" v-show="visible">
       <div class="mui-message-box-mask" @click.self="handleWrapperClick()"></div>
       <div class="mui-message-box">
         <div class="mui-message-box-title">
-          {{title}}
+          <span :class="{'center': center}">
+            <i :class="['iconfont', {'icon-tip-fill-on': iconClass}]" v-if="iconClass"></i>{{title}}
+          </span>
           <div class="mui-message-box-close iconfont icon-cross" @click="handleAction('cancel')"></div>
         </div>
-        <div class="mui-message-box-content">
+        <div class="mui-message-box-content" :class="{'center': center}">
           <p class="mui-message-box-message" v-if="dangerouslyUseHTMLString" v-html="message"></p>
           <p class="mui-message-box-message" v-else>{{message}}</p>
           <input class="mui-message-box-input" ref="input" v-if="type === 'prompt'" v-model="inputValue" :placeholder="inputPlaceholder" :type="inputType"/>
           <div class="mint-msgbox-errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
         </div>
-        <div class="mui-message-box-btns">
+        <div class="mui-message-box-btns" :class="{'center': center}">
           <mui-button class="gray" size="normal" shape="radius" :class="[ cancelButtonClassList ]" @click="handleAction('cancel')" v-if="showCancelButton">{{cancelButtonText}}</mui-button>
           <mui-button size="normal" shape="radius" :class="[ confirmButtonClassList ]" @click="handleAction('confirm')" v-if="showConfirmButton">{{confirmButtonText}}</mui-button>
         </div>
@@ -34,6 +34,7 @@ export default {
       message: '',
       action: '',
       type: '',
+      iconClass: '',
       closed: false,
       closeOnClickModal: true,
       closeOnHashChange: true,
@@ -47,7 +48,8 @@ export default {
       confirmButtonText: '确定',
       cancelButtonText: '取消',
       dangerouslyUseHTMLString: false,
-      editorErrorMessage: null
+      editorErrorMessage: null,
+      center: false
     };
   },
   watch: {
@@ -81,7 +83,6 @@ export default {
       if (this.type === 'prompt' && action === 'confirm' && !this.validate()) {
         return; // 若prompt类型消息提示框验证未通过
       }
-      console.log('11111')
       this.action = action;
       this.doClose();
     },

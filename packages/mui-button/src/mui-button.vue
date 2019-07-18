@@ -82,7 +82,8 @@ export default {
 @import '../../../src/styles/mixin';
 .mui-button {
   width: 60%;
-  height: 40px;
+  height: 34px;
+  line-height: 34px;
   margin:0 auto;
   background: -webkit-linear-gradient(
     left,
@@ -108,7 +109,6 @@ export default {
   
   cursor: pointer;
   text-align: center;
-  line-height: 40px;
 
   &.red {
     background: #ff0000;
