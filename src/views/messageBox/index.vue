@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <mui-button @click="alert">消息提示alert</mui-button>
-    <mui-button @click="confirm">确认消息confirm</mui-button>
-    <mui-button @click="prompt">确认消息prompt</mui-button>
+  <div class="btn-page">
+    <mui-button @click="alert" size="small">消息提示alert</mui-button>
+    <mui-button @click="confirm" size="small">确认消息confirm</mui-button>
+    <mui-button @click="prompt" size="small">确认消息prompt</mui-button>
   </div>
 </template>
 
@@ -42,3 +42,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.btn-page {
+  width: 100%;
+  height: 100%;
+  .mui-button {
+    margin: 10px auto;
+    display: block;
+  }
+}
+</style>

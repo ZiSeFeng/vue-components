@@ -3,7 +3,7 @@
     <div class="mui-tabs-bar">
       <div :class="tabCls(item)" v-for="(item, index) in navList" :key="item.label" @click="handleChange(index)">
         {{item.label}}
-        <span v-if="item.closable" @click="close(index, item.name, $event)" class="mui-tabs-close iconfont icon-close"></span>
+        <span v-if="item.closable" @click="close(index, item.name, $event)" class="mui-tabs-close iconfont icon-close-fill-on"></span>
       </div>
     </div>
     <div class="mui-tabs-content">
@@ -94,3 +94,7 @@ export default {
   },
 }
 </script>
+
+<style lang="sass" scoped>
+@import './index.scss';
+</style>

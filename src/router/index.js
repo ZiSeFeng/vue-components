@@ -10,12 +10,12 @@ const MessageBox = () => import('@/views/messageBox/index');
 const Datepicker = () => import('@/views/datepicker/index');
 const Swiper = () => import('@/views/swiper/index');
 const Upload = () => import('@/views/upload/index');
-const Tab = () => import('@/views/tab/index');
 const Tip = () => import('@/views/tip/index');
 const Checkbox = () => import('@/views/checkbox/index');
 const InputNumber = () => import('@/views/input-number/index');
 const Tabs = () => import('@/views/tabs/index');
 const Dropdown = () => import('@/views/dropdown/index');
+const Table = () => import('@/views/table/index');
 
 export default new Router({
   mode: 'history',
@@ -57,11 +57,6 @@ export default new Router({
       component: Upload
     },
     {
-      path: '/tab',
-      name: '标签页tab',
-      component: Tab
-    },
-    {
       path: '/tip',
       name: '提示tip',
       component: Tip
@@ -85,6 +80,11 @@ export default new Router({
       path: '/dropdown',
       name: '下拉菜单',
       component: Dropdown
+    },
+    {
+      path: '/table',
+      name: '可排序的表格',
+      component: Table
     }
   ]
 });

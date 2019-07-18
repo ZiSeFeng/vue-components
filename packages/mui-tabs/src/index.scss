@@ -1,5 +1,5 @@
 .mui-tabs{
-  font-size: 30px;
+  font-size: 20px;
   color: #657180;
 }
 .mui-tabs-bar:after {
@@ -7,7 +7,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #d7dd34;
+  background-color: #ccc;
   margin-top: -1px;
 }
 .mui-tabs-tab {
@@ -19,14 +19,14 @@
   cursor: pointer;
   position: relative;
 }
-.mui-tabs-tab-active {
+.mui-tabs-active {
   color: #3399ff;
   border-top: 1px solid #3399ff;
   border-bottom: 1px solid #fff;
   transform: translateY(-1px);
   transition: transform 0.5s;
 }
-.mui-tabs-tab-active:before{
+.mui-tabs-active:before{
   content: '';
   display: block;
   height: 1px;
@@ -38,11 +38,4 @@
 }
 .mui-tabs-close {
   color: #ff6666;
-}
-.mui-tabs-close:before{
-  content: '\2716';
-}
-.mui-tabs-close:hover {
-  color: #990033;
-  font-weight: bolder;
 }

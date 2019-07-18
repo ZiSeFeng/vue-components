@@ -16,7 +16,7 @@ module.exports = {
   //     filename: 'index.html'
   //   }
   // },
-  // lintOnSave: true, // 关闭eslint规范
+  lintOnSave: false, // 关闭eslint规范
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*',

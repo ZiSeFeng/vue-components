@@ -2,6 +2,7 @@
   <div class="button-page">
     <mui-button size="large" type="primary">primary</mui-button>
     <mui-button size="medium" type="default" />
+    <mui-button size="normal" type="default" />
     <mui-button size="small" icon="back" />
     <mui-button size="danger">
       <img

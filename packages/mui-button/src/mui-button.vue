@@ -10,7 +10,7 @@
            <!-- <i v-if="icon" class="mui-icon" :class="'mui-icon-'+ icon"></i> -->
          </slot>
        </span>
-       <label class="mui-button-text"><slot>默认值</slot></label>
+       <p class="mui-button-text"><slot>默认值</slot></p>
     </button>
 </template>
 
@@ -31,30 +31,30 @@
 export default {
   name: 'mui-button',
   props:{
-        size:{
-          type:String
-        },
-        shape: {
-          type: String,
-          default: ''
-        },
-        disabled:{
-          type: Boolean,
-        },
-        nativeType: String,
-        icon: String,
-        type: {
-          type: String,
-          default: '',
-          validator(value) {
-            return [
-              'default',
-              'danger',
-              'primary',
-              ''
-            ].indexOf(value) > -1;
-          }
-        }
+    size:{
+      type:String
+    },
+    shape: {
+      type: String,
+      default: ''
+    },
+    disabled:{
+      type: Boolean,
+    },
+    nativeType: String,
+    icon: String,
+    type: {
+      type: String,
+      default: '',
+      validator(value) {
+        return [
+          'default',
+          'danger',
+          'primary',
+          ''
+        ].indexOf(value) > -1;
+      }
+    }
   },
   created() {
     console.log(this.size, '/n', this.html, '11')
@@ -101,7 +101,7 @@ export default {
   ); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, $btnBegin, $btnEnd); /* 标准的语法 */
   border: 1px solid $btnborder;
-  font-size: 18px;
+  font-size: 14px;
   color: #fff;
   outline: none;
   border-radius: 30px;
@@ -114,9 +114,8 @@ export default {
     background: #ff0000;
   }
   &.gray {
-    background: $btngrayclr;
+    background: #ccc;
     border: 1px solid $btngrayclr;
-    color: $btnTxt;
   }
   &.light {
     background: #fff;
@@ -136,6 +135,10 @@ export default {
   }
   &.sm {
     width: 90px;
+  }
+  &.normal {
+    width: auto;
+    padding: 0 16px;
   }
 
   &.disabled {

@@ -16,9 +16,6 @@
       <router-link to="/upload">上传upload</router-link>
     </div>
     <div class="home-btn">
-      <router-link to="/tab">标签页tab</router-link>
-    </div>
-    <div class="home-btn">
       <router-link to="/tip">提示tip</router-link>
     </div>
     <div class="home-btn">
@@ -32,6 +29,9 @@
     </div>
     <div class="home-btn">
       <router-link to="/dropdown">下拉菜单</router-link>
+    </div>
+    <div class="home-btn">
+      <router-link to="/table">可排序的表格</router-link>
     </div>
   </div>
 </template>
