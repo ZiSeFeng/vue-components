@@ -5,14 +5,14 @@ function broadcast(componentName, eventName, params) {
     if (name === componentName) {
       child.$emit.apply(child, [eventName].concat(params));
     } else {
-      broadcast.apply(child, [componentName, eventName].concat([params]));
+      broadcast.apply(child, [componentName, eventName].concat(params));
     }
   });
 }
-var Emitter = {
+
+export default {
   methods: {
     dispatch(componentName, eventName, params) {
-      console.log(componentName,' 888')
       var parent = this.$parent || this.$root;
       var name = parent.$options.componentName;
 
@@ -30,5 +30,5 @@ var Emitter = {
     broadcast(componentName, eventName, params) {
       broadcast.call(this, componentName, eventName, params);
     }
-  }
-};
+  },
+}

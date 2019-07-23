@@ -53,7 +53,7 @@
                       :key="item.value"
                       :label="item.label"
                       :disabled="item.disabled"
-                      :value="item.value">{{ item.label }}</mui-option>
+                      :value="item.value"></mui-option>
         </mui-select>
       </div>
       <!-- <div class="input-select-btn clearfix">
@@ -137,7 +137,7 @@ export default {
           disabled: true
         }
       ],
-      inputValue: "选项2",
+      inputValue: "",
       multipleInputValue: ["选项2"]
     };
   },
