@@ -8,14 +8,6 @@ const name = 'wechat demo'; // page title
 const mockPort = 3000; // mock server port
 
 module.exports = {
-  // 修改默认的入口
-  // pages: {
-  //   index: {
-  //     entry: 'src/main.js',
-  //     template: 'public/index.html',
-  //     filename: 'index.html'
-  //   }
-  // },
   lintOnSave: false, // 关闭eslint规范
   devServer: {
     headers: {
@@ -42,30 +34,7 @@ module.exports = {
     }
   },
   productionSourceMap: false,
-  // filenameHashing: true,
-  // css: {
-  //   loaderOptions: {
-  //     css: {},
-  //     // sass: {
-  //     //   data: '@import "@styles/skin.scss"'
-  //     // },
-  //     postcss: {
-  //       plugins: [
-  //         require('postcss-px2rem')({
-  //           remUnit: 124.2, // ui设计稿1242像素, 换算的基数 1242/10
-  //           propList: ['*'],
-  //           mediaQuery: false, // 允许在媒体查询中转换px。
-  //           exclude: '/node_modules/',
-  //           minPixelValue: 3, //设置要替换的最小像素值(3px会被转rem)。 默认 0
-  //           selectorBlackList: ['weui', 'mu'] // 忽略转换正则匹配项
-  //         })
-  //       ]
-  //     }
-  //   }
-  // },
   configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
     name: name,
     resolve: {
       alias: {
@@ -145,36 +114,36 @@ module.exports = {
         config.devtool('cheap-source-map')
       );
 
-    config.when(process.env.NODE_ENV !== 'development', config => {
-      config
-        .plugin('ScriptExtHtmlWebpackPlugin')
-        .after('html')
-        .use('script-ext-html-webpack-plugin', [
-          {
-            // `runtime` must same as runtimeChunk name. default is `runtime`
-            inline: /runtime\..*\.js$/
-          }
-        ])
-        .end();
-      config.optimization.splitChunks({
-        chunks: 'all',
-        cacheGroups: {
-          libs: {
-            name: 'chunk-libs',
-            test: /[\\/]node_modules[\\/]/,
-            priority: 10,
-            chunks: 'initial' // only package third parties that are initially dependent
-          },
-          commons: {
-            name: 'chunk-commons',
-            test: resolve('src/components'), // can customize your rules
-            minChunks: 3, //  minimum common number
-            priority: 5,
-            reuseExistingChunk: true
-          }
-        }
-      });
-      config.optimization.runtimeChunk('single');
-    });
+    // config.when(process.env.NODE_ENV !== 'development', config => {
+    //   config
+    //     .plugin('ScriptExtHtmlWebpackPlugin')
+    //     .after('html')
+    //     .use('script-ext-html-webpack-plugin', [
+    //       {
+    //         // `runtime` must same as runtimeChunk name. default is `runtime`
+    //         inline: /runtime\..*\.js$/
+    //       }
+    //     ])
+    //     .end();
+    //   config.optimization.splitChunks({
+    //     chunks: 'all',
+    //     cacheGroups: {
+    //       libs: {
+    //         name: 'chunk-libs',
+    //         test: /[\\/]node_modules[\\/]/,
+    //         priority: 10,
+    //         chunks: 'initial' // only package third parties that are initially dependent
+    //       },
+    //       commons: {
+    //         name: 'chunk-commons',
+    //         test: resolve('src/components'), // can customize your rules
+    //         minChunks: 3, //  minimum common number
+    //         priority: 5,
+    //         reuseExistingChunk: true
+    //       }
+    //     }
+    //   });
+    //   config.optimization.runtimeChunk('single');
+    // });
   }
 };

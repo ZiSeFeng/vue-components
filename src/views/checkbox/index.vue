@@ -56,46 +56,26 @@
                       :value="item.value"></mui-option>
         </mui-select>
       </div>
-      <!-- <div class="input-select-btn clearfix">
-        <label for="">有禁用选项：</label>
-        <mui-select v-model="inputValue">
-          <mui-option v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :disabled="item.disabled"
-                      :value="item.value">{{ item.label }}</mui-option>
-        </mui-select>
-      </div>
       <div class="input-select-btn clearfix">
         <label for="">禁用状态：</label>
-        <mui-select v-model="inputValue">
+        <mui-select v-model="inputValue" disabled>
           <mui-option v-for="item in options"
                       :key="item.value"
                       :label="item.label"
                       :disabled="item.disabled"
-                      :value="item.value">{{ item.label }}</mui-option>
+                      :value="item.value"></mui-option>
         </mui-select>
       </div>
       <div class="input-select-btn clearfix">
-        <label for="">基础多选：</label>
-        <mui-select v-model="inputValue">
+        <label for="">可清除：</label>
+        <mui-select v-model="inputValue" clearable>
           <mui-option v-for="item in options"
                       :key="item.value"
                       :label="item.label"
                       :disabled="item.disabled"
-                      :value="item.value">{{ item.label }}</mui-option>
+                      :value="item.value"></mui-option>
         </mui-select>
       </div>
-       <div class="input-select-btn clearfix">
-        <label for="">缩略项：</label>
-        <mui-select v-model="inputValue">
-          <mui-option v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :disabled="item.disabled"
-                      :value="item.value">{{ item.label }}</mui-option>
-        </mui-select>
-      </div> -->
     </div>
   </div>
 </template>
@@ -138,11 +118,12 @@ export default {
         }
       ],
       inputValue: "",
-      multipleInputValue: ["选项2"]
+      multipleInputValue: ["选项2"],
+
     };
   },
   created() {
-    console.log(this.group, "asdfasdfasdfafsfasd");
+    
   }
 };
 </script>
@@ -160,9 +141,11 @@ export default {
 .input-select-btn {
   width: 100%;
   line-height: 22px;
+  margin-top: 16px;
   label {
     padding: 0 6px;
     float: left;
+    width: 100px;
   }
 }
 </style>

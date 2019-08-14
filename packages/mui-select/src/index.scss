@@ -1,6 +1,7 @@
 .mui-select {
   width: 240px;
   display: inline-block;
+  position: relative;
 }
 
 .mui-select-input {
@@ -8,6 +9,16 @@
   position: relative;
   font-size: 14px;
   display: inline-block;
+  &.is-disabled {
+    .mui-select-input-inner {
+      cursor: not-allowed;
+      background-color: #f5f7fa;
+      border-color: #e4e7ed;
+    }
+    .mui-select-input-icon i {
+      cursor: not-allowed;
+    }
+  }
 }
 
 .mui-select-input-inner {
@@ -34,13 +45,14 @@
 .mui-select-input-icon {
   position: absolute;
   height: 100%;
-  right: 5px;
+  right: 10px;
   top: 0;
   text-align: center;
   color: #c0c4cc;
   transition: all .3s;
   pointer-events: none;
   display: flex;
+  pointer-events: none;
   i {
     color: #c0c4cc;
     font-size: 14px;
@@ -48,6 +60,9 @@
     transform: rotate(0deg);
     cursor: pointer;
     align-self: center;
+    &.is-reverse {
+      transform: rotate(180deg)
+    }
   }
 }
 
@@ -62,7 +77,7 @@
   box-shadow: 0 2px 12px 0 rgba(#000, 0.1);
   box-sizing: border-box;
   margin: 10px 0;
-  position: relative;
+  position: absolute;
   text-align: left;
 }
 

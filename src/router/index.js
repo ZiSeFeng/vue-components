@@ -16,6 +16,7 @@ const InputNumber = () => import('@/views/input-number/index');
 const Tabs = () => import('@/views/tabs/index');
 const Dropdown = () => import('@/views/dropdown/index');
 const Table = () => import('@/views/table/index');
+const Cascader = () => import('@/views/cascader/index');
 
 export default new Router({
   mode: 'history',
@@ -85,6 +86,11 @@ export default new Router({
       path: '/table',
       name: '可排序的表格',
       component: Table
+    },
+    {
+      path: '/cascader',
+      name: '级联菜单',
+      component: Cascader
     }
   ]
 });

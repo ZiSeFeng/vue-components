@@ -11,6 +11,8 @@ import '@/styles/icons/iconfont.css';
 Vue.config.productionTip = false;
 
 import VueMui from '../packages';
+// import VueMui from 'vue-mui-component';
+// import 'vue-mui-component/lib/vue-mui.css';
 Vue.use(VueMui);
 // console.log(VueMui, VueMui.muiTip, 'muiTip 12212');
 // Vue.use(VueMui.muiTip.directive, { directiveName: 'tip' });

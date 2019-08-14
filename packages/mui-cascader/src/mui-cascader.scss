@@ -1,0 +1,31 @@
+.mui-cascader-trigger {
+  width: 150px;
+  height: 25px;
+  border: 1px solid #ccc;
+}
+
+.mui-cascader-content {
+  display: flex;
+}
+
+.mui-cascader-left {
+  border: 1px solid #ccc;
+  min-height: 100px;
+}
+
+.mui-cascader-right {
+  margin-left: -1px;
+}
+
+.mui-cascader-label {
+  width: 60px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #606266;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.mui-cascader-label:hover {
+  background: #f5f7fa;
+}

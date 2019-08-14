@@ -33,6 +33,9 @@
     <div class="home-btn">
       <router-link to="/table">可排序的表格</router-link>
     </div>
+    <div class="home-btn">
+      <router-link to="/cascader">级联</router-link>
+    </div>
   </div>
 </template>
 

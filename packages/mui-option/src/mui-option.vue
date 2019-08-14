@@ -79,7 +79,6 @@ export default {
   },
   methods: {
     selectOptionClick() {
-      console.log('888')
       if (this.disabled !== true && this.groupDisabled !== true) {
         this.dispatch('mui-select', 'handleOptionClick', this);
       }
